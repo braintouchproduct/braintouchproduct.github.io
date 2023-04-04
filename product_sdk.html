@@ -140,15 +140,21 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <video src="video/sdk/drive_scene.mp4" loop="true" autoplay="true" muted="true"></video>
+                            <video loop="true" autoplay="true" muted="true">
+                                <source src="video/sdk/drive_scene.mp4">
+                            </video>
                             <p>AR 骑行/训练等双手被占用的场景中基于视觉注意力的界面控制</p>
                         </div>
                         <div class="swiper-slide">
-                            <video src="video/sdk/als_scene.mp4" loop="true" autoplay="true" muted="true"></video>
+                            <video loop="true" autoplay="true" muted="true">
+                                <source src="video/sdk/als_scene.mp4">
+                            </video>
                             <p>行动能力受限的用户与外界交流沟通的交互工具</p>
                         </div>
                         <div class="swiper-slide">
-                            <video src="video/sdk/drive_scene_02.mp4" loop="true" autoplay="true" muted="true"></video>
+                            <video loop="true" autoplay="true" muted="true">
+                                <source src="video/sdk/drive_scene_02.mp4">
+                            </video>
                             <p>HUD AR 驾驶场景下视觉疲劳及注意力水平监测提醒</p>
                         </div>
                     </div>
@@ -205,41 +211,41 @@
     <script src="js/product.js"></script>
     <script src="js/product_sdk.js"></script>
     <!-- Swiper JS -->
-<!--    <script src="js/swiper.min.js"></script>-->
+    <script src="js/swiper.min.js"></script>
 
-    <!-- Initialize Swiper -->
-<!--    <script>-->
-<!--        let swiper = new Swiper('.swiper-container', {-->
-<!--            slidesPerView: 1.6,-->
-<!--            spaceBetween: 30,-->
-<!--            centeredSlides: true,-->
-<!--            loop: true,-->
-<!--            // 左右箭头(上一张、下一张)-->
-<!--            navigation: {-->
-<!--                nextEl: ".swiper-button-next",-->
-<!--                prevEl: ".swiper-button-prev"-->
-<!--            },-->
-<!--            // 小圆点-->
-<!--            pagination: {-->
-<!--                el: '.swiper-pagination',-->
-<!--                clickable: true-->
-<!--            },-->
-<!--            // 自动播放-->
-<!--            autoplay: {-->
-<!--                delay: 4 * 1000,  // 轮播图的间隔(毫秒)-->
-<!--                disableOnInteraction: false,  // 操作轮播图后, 希望在结束操作后, 继续自动播放轮播图-->
-<!--            }-->
-<!--        });-->
+     Initialize Swiper
+    <script>
+        let swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1.6,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            // 左右箭头(上一张、下一张)
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            // 小圆点
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            // 自动播放
+            autoplay: {
+                delay: 4 * 1000,  // 轮播图的间隔(毫秒)
+                disableOnInteraction: false,  // 操作轮播图后, 希望在结束操作后, 继续自动播放轮播图
+            }
+        });
 
-<!--        // 鼠标悬停时, 暂停轮播-->
-<!--        swiper.el.onmouseover = function(){-->
-<!--            swiper.autoplay.stop();-->
-<!--        }-->
+        // 鼠标悬停时, 暂停轮播
+        swiper.el.onmouseover = function(){
+            swiper.autoplay.stop();
+        }
 
-<!--        // 鼠标离开时, 继续播放-->
-<!--        swiper.el.onmouseleave = function(){-->
-<!--            swiper.autoplay.start();-->
-<!--        }-->
-<!--    </script>-->
+        // 鼠标离开时, 继续播放
+        swiper.el.onmouseleave = function(){
+            swiper.autoplay.start();
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>BrainTouch</title>
+
+<!--    <link rel="stylesheet" href="css/html_fontsize.css">-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/ssvep_based_bci.css">
+</head>
+
+
+<body>
+    <!-- 背景图 start -->
+    <div class="header-bg" id="header_bg">
+        <!-- header 部分 start -->
+        <div class="header-wrapper">
+            <div class="header w">
+                <!-- logo  -->
+                <div class="header-logo">
+                    <h1>
+                        <a href="index.html" title="">
+                            <img src="images/index/logo_header.png" alt="">
+                        </a>
+                    </h1>
+                </div>
+
+                <!-- 导航部分 start -->
+                <ul class="header-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="product-link">
+                        <a href="javascript:void(0);" class="active">产品</a>
+                        <ul class="second-nav">
+                            <li><a href="product_lab.html">BrainTouch Lab</a></li>
+                            <li><a href="product_sdk.html">BrainTouch SDK</a></li>
+                        </ul>
+                    </li>
+<!--                    <li><a href="industry_cases.html">行业案例</a></li>-->
+                    <li><a href="javascript:void(0);" class="contact-us">联系我们</a></li>
+                </ul>
+                <!-- 导航部分 end -->
+            </div>
+        </div>
+        <!-- header 部分 end -->
+    </div>
+    <!-- 背景图 end -->
+
+
+    <!-- 正文模块 start -->
+    <div class="container w clearfix">
+        <h4 class="clearfix">
+            <a href="product_hub.html" class="back-link">
+                <span>产品 &gt; Project Hub</span>
+            </a>
+        </h4>
+
+
+        <div class="title">
+            <h3>BrainTouch Lab Demo:SSVEP-based BCI</h3>
+        </div>
+
+
+        <div class="main-content clearfix">
+            <!-- 正文左侧部分 -->
+            <div class="left clearfix">
+                <div class="nav">
+                    <ul id="nav-ul" class="clearfix">
+                        <li><a data-id='1' class="a-title elevator-1 active">Intro</a></li>
+                        <li><a data-id='2' class="a-title elevator-2">Components and supplies</a></li>
+                        <li><a data-id='3' class="a-title elevator-3">Apps and platforms</a></li>
+                        <li><a data-id='4' class="a-text elevator-4">Software</a></li>
+                        <li><a data-id='5' class="a-title elevator-5">Project description</a></li>
+                        <li><a data-id='6' class="a-title elevator-6">Code</a></li>
+                        <li><a data-id='7' class="a-text elevator-7">刺激图片绘制</a></li>
+                        <li><a data-id='8' class="a-text elevator-8">Dataflow</a></li>
+                        <li><a data-id='9' class="a-text elevator-9">Algorithm </a></li>
+                        <li><a data-id='10' class="a-text elevator-10">Example</a></li>
+                        <li><a data-id='11' class="a-title elevator-11">Downloadable files</a></li>
+                        <li><a data-id='12' class="a-title elevator-12">References</a></li>
+                    </ul>
+                </div>
+
+                <div class="vertical-logo">
+                    <img src="images/lab_instr/vertical-logo@2x.png" alt="">
+                </div>
+
+            </div>
+
+            <!-- 正文右侧部分 -->
+            <div class="right main-text clearfix">
+                <h2 class="elevator-content-1">Intro</h2>
+                <p>
+                    本文档旨在为视觉脑机接口兴趣爱好者提供一个简易的开发教程，通过本文档用户可以自定义设计基于视觉诱发电位的脑机接口系统(癫痫患者及使用过程不适者请停止使用)。
+                    Key words: 脑电图   视觉控制  可穿戴脑电图机
+                </p>
+
+                <img src="images/ssvep_based_bci/ssvep_demo.gif" alt="">
+
+                <h2 class="elevator-content-2">Components and supplies</h2>
+                <p>
+                    硬件需求：BrainTouch 无线脑电采集设备；  具备 Bluetooth 及 Wifi 通信功能的计算机<br>
+                    软件需求：BrainTouch Lab, MATLAB(2019a 及之后的版本)、Psychtoolbox 工具箱、Gstreamer<br>
+                    数据通信方式：BrainTouch 与电脑间通过蓝牙连接，经 BrainTouch Lab 在局域网下通过 TCP/IP 与 MATLAB 通信
+                </p>
+
+
+                <h2 class="elevator-content-3">Apps and platforms</h2>
+                <p>BrainTouch Lab    Windows</p>
+
+
+                <h2 class="elevator-content-4">Software</h2>
+                <h4 class="text-ident-1font-size">BrainTouch Lab</h4>
+                <p class="text-ident-1font-size">软件的安装请参考：BrainTouch Lab 数据接入文档</p>
+
+
+                <h4 class="text-ident-1font-size">Psychtoolbox 工具箱安装</h4>
+                <p class="text-ident-1font-size"> 官网：<a href="http://psychtoolbox.org/">http://psychtoolbox.org/</a></p>
+
+
+                <p class="text-ident-1font-size">
+                    因 MATLAB 版权问题，本教程不提供 MATLAB 的安装引导服务，请确保 MATLAB 安装完成后，继续 Psychtoolbox 工具箱的安装。您可以根据自己的喜好在官网上下载最新的 PTB 工具箱使用，附件提供了 PTB3.0.19 版本。
+                </p>
+
+                <p>
+                    Step1: 解压文件后，将整个文件夹拷贝至 MATLAB 安装路径的子文件夹 toolbox 目录下
+                </p>
+                <p>
+                    Step2: 然后打开 MATLAB, 主页-设置路径-添加并包含子文件夹，选中刚才拷贝进来的 Psychtoolbox 文件夹后点击保存，如下图所示。
+                </p>
+                <img src="images/ssvep_based_bci/img_01.png" alt="" class="img-01">
+
+                <p>
+                    Step3：切换MATLAB当前路径至MATLAB安装路径下Psychtoolbox所在路径，本示例中路径如下：D:\softwares\matlab2021b\toolbox\Psychtoolbox，运行SetupPsychtoolbox.m，然后根据命令行窗口的文字提示操作即可。成功安装后可以看到‘Enjoy!’
+                </p>
+
+                <img src="images/ssvep_based_bci/img_02.png" alt="" class="img-02">
+
+                <p>
+                    或者在命令行输入 help Screen，可以看到如下提示界面，表明PTB已经成功安装。关于PTB的使用方法这里不做赘述，可以参考官网的引导教程 <a href="https://peterscarfe.com/ptbtutorials.html">https://peterscarfe.com/ptbtutorials.html</a>, 或者参考电子工业出版社出版的《PSYCHTOOLBOX工具箱及MATLAB编程实例》，作者：冯成志。
+                </p>
+
+                <img src="images/ssvep_based_bci/img_03.png" alt="" class="img-03">
+
+                <h4 class="text-ident-1font-size">gstreamer</h4>
+
+                <p class="text-ident-1font-size">
+                    官网：<a href="https://gstreamer.freedesktop.org/download/">https://gstreamer.freedesktop.org/download/</a>
+                </p>
+
+                <p class="text-ident-1font-size">
+                    gtreamer插件如果未成功安装且正确设置系统环境变量的情况下，Psychtoolbox Screen() 多媒体功能和新的“DrawText”高质量文本渲染器将无法工作！您可以从官网根据个人电脑系统参数选择对应的安装包安装。附件提供了64位1.22.0的运行时和开发包，两个都需要安装后才能使用，安装顺序不影响使用效果。关于Gstreamer的功能可在MATLAB命令行窗口输入 help GStreamer以了解更多详情。
+                </p>
+
+                <p class="text-ident-1font-size">
+                    step1: 右击.msi文件选择安装，勾选“我接受许可协议中的条款”，然后点击"Next"
+                </p>
+
+                <img src="images/ssvep_based_bci/img_04.png" alt="" class="img-04 img-width500">
+
+                <p class="text-ident-1font-size">
+                    step2：注意，这里选择自定义安装“Custom”,然后对所有的功能选择安装在本地硬盘上"Entire feature will be installed on local hard drive"。然后一路Next直到安装结束，点击“Finish”即可。
+                </p>
+
+                <img src="images/ssvep_based_bci/img_05.png" alt="" class="img-05 img-width500">
+                <img src="images/ssvep_based_bci/img_06.png" alt="" class="img-06 img-width500">
+
+                <p class="text-ident-1font-size">
+                    step3：更改系统环境变量<br>
+                    打开控制面板-系统和安全-系统-高级系统设置-环境变量-系统变量-新建
+                </p>
+
+                <p class="text-ident-1font-size">
+                    变量名：GSTREAMER_1_0_ROOT_MSVC_X86_64<br>
+                    变量值：刚才的安装地址，本示例为：D:\gstreamer\1.0\msvc_x86_64\
+                </p>
+
+                <p class="text-ident-1font-size">
+                    Note: 如果所有软件步骤安装完成后，打开MATLAB命令行窗口提示有如下信息，说明Gstreamer未按照提示安装，或者请升级至最新版本的Psychtoolbox与最新版本的gstreamer。
+                </p>
+
+                <p>
+                    相关问题也可参考以下链接：
+                </p>
+                <p>
+                    <a href="https://github.com/Psychtoolbox-3/Psychtoolbox-3/wiki/FAQ#how-to-resolve-gstreamer-problems">
+                        https://github.com/Psychtoolbox-3/Psychtoolbox-3/wiki/FAQ#how-to-resolve-gstreamer-problems
+                    </a>
+                </p>
+
+                <img src="images/ssvep_based_bci/img_07.png" alt="" class="img-07">
+
+                <p>
+                    所有软件正确安装，且版本符合要求，MATLAB 的初始界面命令行窗口如下。
+                </p>
+
+                <img src="images/ssvep_based_bci/img_08.png" alt="" class="img-8">
+
+                <h4 class="text-ident-1font-size">刺激稳定性的一些设置</h4>
+                <p class="text-ident-1font-size">
+                    视觉脑机接口不同于一般的P300、MI等诱发范式脑机接口，对视觉刺激的稳定性要求很高。本教程的视觉刺激基于MATLAB语言编写，依赖Psychtoolbox工具箱及Gstreamer的一些功能，对正弦采样原理绘制的图片制作纹理缓冲，然后在主页面通过帧切换方式呈现，为了进一步确保视觉刺激过程中不会出现掉帧、抖动等现象，需要对显卡做一些设置，具体操作如下。
+                    NVIDIA控制面板—>3D设置—>管理3D设置—>程序设置（选择自定义的程序为matlab）
+                </p>
+
+                <p class="text-ident-1font-size">
+                    (1) 垂直同步：应设置为“关”。其他选项会增加每帧Flip时间的抖动范围。
+                </p>
+
+                <p class="text-ident-1font-size">
+                    (2) 监视器技术：应设置为“固定刷新”。“ULMB”选项会将垂直同步默认设置为“使用3D应用程序设置”，<br>
+                    进而增加每帧Flip时间的抖动范围。“G-SYNC” 选项会动态同步显示器的刷新率与GPU 的帧率，以防画面撕裂，但常使屏幕刷新率偏离240Hz。
+                </p>
+
+                <p class="text-ident-1font-size">
+                    (3) 电源管理模式：建议设置为“最高性能优先”。设置为“偏重性能稳定”或“自适应”时会增加掉帧概率
+                </p>
+
+                <p class="text-ident-1font-size">
+                    (4) 平滑处理-FXAA：设置为“开”时可以降低每帧Flip时间的抖动范围，代价是柔和模糊画面；若发现刺激边缘出现失真或抖动，应设置为“关”，可根据需求进行选择
+                </p>
+
+                <p class="text-ident-1font-size">
+                    (5) 平滑处理-模式+平滑处理-设置：平滑处理-模式设置为“置换任何应用程序设置”， 平滑处理-设置选择“2x（2xMS）”，可以降低每帧Flip时间的抖动范围，
+                    与平滑处理-FXAA设置为“开”效果类似。
+                </p>
+
+                <p class="text-ident-1font-size">
+                    (6)通过预览调整图像设置，建议选择侧重于“性能”
+                </p>
+
+                <h2 class="elevator-content-5">Project description</h2>
+                <p>
+                    使用BrainTouch设备搭建基于稳态视觉诱发电位的脑机接口系统。一个标准的SSVEP-based BCI系统如下图所示，包含视觉刺激器、EEG采集设备、视觉刺激与脑电记录仪器的同步信号和分类算法组成。本教程将涵盖图示的所有步骤，所有核心的可自定义的开发部分全部在MATLAB中完成。
+                </p>
+
+                <img src="images/ssvep_based_bci/img_09.png" alt="" class="img-9">
+
+                <p>
+                    刺激界面由PTB工具箱绘制，最终的用户界面如下图所示，本示例给出3目标SSVEP的示例，用户在熟悉PTB的使用方法后可根据自己喜好设计不同目标数、页面布局、刺激块的大小和颜色等属性。
+                </p>
+
+                <img src="images/ssvep_based_bci/img_10.png" alt="" class="img-10">
+
+                <p>
+                    本示例是带提示的SSVEP系统，系统随机选择刺激顺序，并用1秒的红色框提示用户，提示界面如下图所示，红色提示框出现在目标1上，接下来你需要集中注意力注视目标1，在刺激闪烁过程中尽量不要眨眼与较大的身体动作。每次闪烁的时间可调，建议不要大于4秒以避免视觉疲劳。
+                </p>
+
+                <img src="images/ssvep_based_bci/img_11.png" alt="" class="img-11">
+
+                <p>
+                    在视觉刺激结束后，系统会给出算法判断的结果，即系统分析的您刚才注视的目标索引，结果以蓝色框的视觉反馈提供，如下图所示。
+                </p>
+
+                <img src="images/ssvep_based_bci/img_12.png" alt="" class="img-12">
+
+                <p>
+                    上述的过程均在MATLAB下完成，其中刺激属性、刺激周期、提示时间、反馈时间以及解码算法用户均可自定义，本教程给出的是无训练的基于滤波器组典型相关分析FBCCA方法，参考附件中的文章。
+                </p>
+
+                <h2 class="elevator-content-6">Code</h2>
+
+                <h4 class="elevator-content-7">刺激图片绘制</h4>
+                <p>
+                    “刺激稳定性的一些设置”步骤完成后，重启电脑，打开MATLAB，顺序运行以下代码Step1-5.m，即可完成视觉刺激的绘制。用户可以结合个人电脑的实际分辨率、刷新率去设计自定义的SSVEP系统。注意，SSVEP在低频的响应更明显，显示器能够呈现的刺激频率不得超过显示器刷新率的一半，如60Hz的显示器最高只能呈现30Hz的视觉刺激。关于正弦采样原理及SSVEP的理论知识可以参考附件中的文章。
+                </p>
+                <h4>Step1.m</h4>
+                <pre class="code-background">
+close all;
+clear ;
+clc;
+%正弦采样方法绘制刺激图片
+% -------------------------------------------------------------------------
+Screen('Preference', 'SkipSyncTests', 1);
+% 各目标的刺激频率
+character = {'1','2','3'};% 目标含义
+gazetype = '+';%注视点
+frequency = [8.2 8.8 9.4];%每个目标对应的刺激频率信息
+phase = [0 0 0 ]*pi; % 每个目标对应的刺激相位信息
+frame_rate = 60;%显示器刷新率
+textsize = 40;% 目标中字号大小
+gazeSize = 50;%注视点字号
+displayTime = 5; % 刺激呈现时间
+timepoint = [1:frame_rate*displayTime]/frame_rate;
+% mode：刺激对比度，对应闪烁感的强弱
+mode = [0.3 0.7];
+for target = 1:length(frequency)
+    Sequence(target,:) = 255*(...
+        mean(mode)+diff(mode)/2*(sin(2*pi*frequency(target)*timepoint + phase(target)))...
+        );
+end
+% -------------------------------------------------------------------------
+AssertOpenGL;
+% 创建文件夹以保存绘制的图片--------------------------------------------------
+mkdir([pwd,'\sin_sample\']);
+try
+    % ---------------------------------------------------------------------
+    KbName('UnifyKeyNames');
+    %把当前系统的键盘按键的命名方案统一转换为MacOX-X系统的命名方案，提高实验程序的可移植性
+    confirm =  KbName('Space');
+    escapekey = KbName('escape');
+    RestrictKeysForKbCheck([confirm,escapekey]);%限定按键检查范围
+    [KeyIsDown,endrt,KeyCode] = KbCheck;
+    %按键判断：KeyIsDown若有按键则返回1，endrt按键时间s，KeyCode所按键的扫描码
+    WaitSecs(0.01);%等待指定时间
+    ListenChar(2);%屏蔽掉按键输出至MATLAB命令窗口
+    % ---------------------------------------------------------------------
+    % 打开screen
+    Screens = Screen('Screens');
+    ScreenNum = max(Screens);
+    [w, rect] = Screen('OpenWindow', ScreenNum);%创建主页面     rect 0 0 1920 1080
+    % 将此刺激程序在CPU执行队列中的优先级提高到最高级别
+    Priority(MaxPriority(w));
+    % 得到屏幕的垂直分辨率
+    params.vertical = rect(4);%
+    % 得到屏幕的水平分辨率
+    params.horiz = rect(3); %
+    input_h = params.vertical/5;%最上面输入框占垂直像素数比例1/5
+    inputRect = [0 0 params.horiz input_h];%输入框矩阵坐标
+    % 设计目标在屏幕上的位置-------------------------------------------------
+    row_S = 2;% 2行
+    column_S = 5;%5列
+    r_stimuli = 0.7;%目标总宽度占屏幕宽度的比例
+    interH = 0.3*params.horiz/(column_S+1);%目标间间隔总宽度占水平像素0.3
+    sizeC=0.7*params.horiz/column_S;%每个目标边长
+    % ---------------------------------------------------------------------
+    [a,b] = WindowCenter(w);%返回窗口的中心点。
+    black = BlackIndex(w);%返回CLUT索引，以在当前屏幕深度生成黑色，假设有一个用于该深度的标准颜色查找表。
+    white = WhiteIndex(w);
+    gray = GrayIndex(w);
+    HideCursor;
+    % 等待2秒，若用WaitSecs(2)刺激会不稳定
+    delay1 = GetSecs();
+    delay2 = GetSecs();
+    while (delay2-delay1<2)
+        Screen('FillRect',w, black);
+        Screen('TextSize',w,textsize); %设置字号大小
+        [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,'Wait...');%获取文本边界
+        textwidth = normBoundsRect(3);
+        textheight =  normBoundsRect(4);
+        Screen('TextFont',w,'Times New Roman');%设置字体
+        Screen('DrawText',w,'Wait...',a-textwidth/2,b-textheight/2,white);
+        Screen('Flip',w);
+        delay2 = GetSecs();
+    end
+    % --------------------------------------------------------------------
+    for keyNum = 1:length(frequency)
+        mkdir([pwd,'\sin_sample\',num2str(keyNum)]);
+        for count1 = 1:frame_rate*displayTime
+            Screen('FillRect',w, black);
+            %刺激块内涂色，基于亮度正弦采样的RGB值
+            Screen('FillRect',w, [1,1,1]*Sequence(keyNum,count1) ,[a-sizeC/2,b-sizeC/2,a+sizeC/2,b+sizeC/2]);%mod取余；相邻两格之间颜色;仅是灰度值
+            Screen('TextSize',w,textsize); %设置字号大小
+            [normBoundsRect,~] = Screen('TextBounds',w,character{keyNum});%获取文本边界
+            textwidth = normBoundsRect(3);
+            textheight =  normBoundsRect(4);
+            Screen('TextFont',w,'Times New Roman');%设置字体
+            Screen('DrawText',w,character{keyNum},a+sizeC/4-textwidth/2,b+sizeC/4-textheight/2,black);%绘制，使字符在右下角
+            % 注视点
+            Screen('TextSize',w,gazeSize); %设置字号大小
+            [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,gazetype);%获取文本边界
+            textwidth2 = normBoundsRect(3);
+            textheight2 =  normBoundsRect(4);
+            Screen('DrawText',w,gazetype,a-textwidth2/2,b-textheight2/2,[0 255 0]);%绘制注视点
+            Screen('Flip',w);
+            WaitSecs(0.02);% wait 0.02 s per frame
+            % -------------------------------------------------------------
+            % GetImage获取指定窗口中某个区域（边框内）中的图像
+            img = Screen('GetImage',w,[a-sizeC/2-2,b-sizeC/2-2,a+sizeC/2+2,b+sizeC/2+2]);
+            file = [pwd,'\sin_sample\',num2str(keyNum),'\','frame_',num2str(count1),'.jpg'];
+            imwrite(img,file, 'Quality',100);
+        end
+    end
+    RestrictKeysForKbCheck([]);
+    ShowCursor
+    clear Screen;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    disp('the experiment is over');
+    catch
+    RestrictKeysForKbCheck([]);
+    ShowCursor;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    psychrethrow(psychlasterror);
+end
+Screen('CloseAll');</pre>
+
+                <h4>Step2.m</h4>
+                <pre class="code-background">
+close all;
+clear ;
+clc;
+% -------------------------------------------------------------------------
+Screen('Preference', 'SkipSyncTests', 1);
+% -------------------------------------------------------------------------
+character = {'1','2','3'};
+gazetype = '+';
+frequency = [8.2 8.8 9.4];
+phase = [0 0 0]*pi; %
+frame_rate = 60;
+textsize = 40;% 目标中字号大小
+gazeSize = 50;%注视点字号
+displayTime = 5; % 刺激时间
+timepoint = (1:frame_rate*displayTime)/frame_rate;
+% -------------------------------------------------------------------------
+column=5;%刺激界面列数
+row=2;%刺激界面行数
+sumtarget=row*column;% 总目标数，这里并非SSVEP系统的实际目标数，而是为了方便设计目标在屏幕上的布局
+
+% -------------------------------------------------------------------------
+mkdir([pwd,'\stimuli_sequence\']);
+try
+    % ---------------------------------------------------------------------
+    KbName('UnifyKeyNames');
+    %把当前系统的键盘按键的命名方案统一转换为MacOX-X系统的命名方案，提高实验程序的可移植性
+    confirm =  KbName('Space');
+    escapekey = KbName('escape');
+    RestrictKeysForKbCheck([confirm,escapekey]);%限定按键检查范围，节省时间
+    [KeyIsDown,endrt,KeyCode] = KbCheck;
+    %按键判断：KeyIsDown若有按键则返回1，endrt按键时间s，KeyCode所按键的扫描码
+    WaitSecs(0.01);%等待指定时间
+    ListenChar(2);%屏蔽掉按键输出至MATLAB命令窗口
+    % ---------------------------------------------------------------------
+    % 打开screen
+    Screens = Screen('Screens');
+    ScreenNum = max(Screens);
+    [w, rect] = Screen('OpenWindow', ScreenNum);%创建主页面
+    % 将此刺激程序在CPU执行队列中的优先级提高到最高级别
+    Priority(MaxPriority(w));
+    % 得到屏幕的垂直分辨率
+    params.vertical = rect(4);
+    % 得到屏幕的水平分辨率
+    params.horiz = rect(3);
+    input_h = params.vertical/5;%最上面输入框占比1/5
+    inputRect = [0 0 params.horiz input_h];%输入框矩阵
+    % 根据分辨率调整刺激界面
+    row_S = 2;
+    column_S = 5;
+    r_stimuli = 0.7;%目标总宽度占屏幕宽度的比例
+    interH = 0.3*params.horiz/(column_S+1);%目标间间隔总宽度占水平像素比例
+    sizeC=0.7*params.horiz/column_S;%每个目标边长
+    interV = (4/5*params.vertical-sizeC*2)/3;
+    target_upshift = 2/3*interV;% 第一行目标距离输入框下边界的距离
+    % ---------------------------------------------------------------------
+    [a,b] = WindowCenter(w);%返回窗口的中心点。
+    black = BlackIndex(w);%返回CLUT索引，以在当前屏幕深度生成黑色，假设有一个用于该深度的标准颜色查找表。
+    white = WhiteIndex(w);
+    gray = GrayIndex(w);
+    HideCursor;
+    %-------------------------------------------------------------------
+    delay1 = GetSecs();
+    delay2 = GetSecs();
+    while (delay2-delay1<4)
+        Screen('FillRect',w, black);
+        Screen('TextSize',w,textsize); %
+        [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,'Wait...');
+        textwidth = normBoundsRect(3);
+        textheight =  normBoundsRect(4);
+        Screen('TextFont',w,'Times New Roman');
+        Screen('DrawText',w,'Wait...',a-textwidth/2,b-textheight/2,white);
+        Screen('Flip',w);
+        delay2 = GetSecs();
+    end
+    % ---------------------------------------------------------------------
+    %载入图片
+    home_path = [pwd,'\sin_sample\'];
+    for target = 1:length(frequency)
+        for jj = 1:frame_rate*displayTime
+            file = [home_path,num2str(target),'\frame_',num2str(jj),'.jpg'];
+            stim_represent = imread(file);
+            texture(target,jj) = Screen('MakeTexture', w,stim_represent);%创建纹理缓冲
+        end
+    end
+    % -------计算每个目标的坐标--------------------------------------------------------------
+    for rii=1:row
+       for cii=1:column
+           tii=(rii-1)*column+cii;
+           cheker_position(tii,:) = [interH+(sizeC+interH)*(cii-1)-2
+               input_h+interV+(sizeC+interV)*(rii-1)-2
+               (sizeC+interH)*cii+2
+               input_h+(sizeC+interV)*rii+2]';
+       end
+    end
+     cheker_position([1,2,4,5,7,8,9],:) = [];%保留3个目标
+
+% ---------------------------------------------------------------------
+    for count1 = 1:frame_rate*displayTime   % 图片帧数
+        Screen('FillRect',w, black);
+        for ii=1:length(frequency)
+            Screen('FillRect',w, gray ,inputRect);
+            [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,'BrainUp Rethink the Future');%???
+            textwidth = normBoundsRect(3);
+            textheight =  normBoundsRect(4);
+            Screen('TextFont',w,'Times New Roman');%
+            Screen('TextSize',w,70);
+            Screen('DrawText',w,'BrainUp Rethink the Future',a-textwidth/2,inputRect(4)/2-textheight/2,white);
+            Screen('DrawTextures',w,texture(ii,count1),[0 0 sizeC+4 sizeC+4],cheker_position(ii,:));
+        end
+        Screen('Flip',w);
+        WaitSecs(0.005);
+        % -------------------------------------------------------------
+        % GetImage获取指定窗口中某个区域中的图像
+        img = Screen('GetImage',w);%
+        file = [pwd,'\stimuli_sequence\','frame_',num2str(count1),'.jpg'];
+        imwrite(img,file, 'Quality',100);
+    end
+    RestrictKeysForKbCheck([]);
+    ShowCursor
+    clear Screen;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    disp('the experiment is over');
+    catch
+    RestrictKeysForKbCheck([]);
+    ShowCursor;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    psychrethrow(psychlasterror);
+end
+Screen('CloseAll');</pre>
+
+                <h4>Step3.m</h4>
+
+                <pre class="code-background">
+%生成GUI所需的每目标的灰色图片
+close all;
+clear ;
+clc;
+% -------------------------------------------------------------------------
+Screen('Preference', 'SkipSyncTests', 1);
+character = {'1','2','3'};
+gazetype = '+';
+frequency = [8.2 8.8 9.4];
+phase = [0 0 0 ]*pi; % 相位信息
+frame_rate = 60;
+textsize = 40;% 目标中字号大小
+gazeSize = 50;%注视点字号
+displayTime = 5;
+AssertOpenGL;
+
+% -------------------------------------------------------------------------
+try
+    % ---------------------------------------------------------------------
+    KbName('UnifyKeyNames');
+    %把当前系统的键盘按键的命名方案统一转换为MacOX-X系统的命名方案，提高实验程序的可移植性
+    confirm =  KbName('Space');%32
+    escapekey = KbName('escape');%27
+    RestrictKeysForKbCheck([confirm,escapekey]);%限定按键检查范围，节省时间
+    [KeyIsDown,endrt,KeyCode] = KbCheck;
+    %按键判断：KeyIsDown若有按键则返回1，endrt按键时间s，KeyCode所按键的扫描码
+    WaitSecs(0.01);%等待指定时间
+    ListenChar(2);%屏蔽掉按键输出至MATLAB命令窗口
+    % ---------------------------------------------------------------------
+    % 打开screen
+    Screens = Screen('Screens');
+    ScreenNum = max(Screens);
+    [w, rect] = Screen('OpenWindow', ScreenNum);%创建主页面     rect 0 0 1920 1080
+    % 将此刺激程序在CPU执行队列中的优先级提高到最高级别
+    Priority(MaxPriority(w));
+    % 得到屏幕的垂直分辨率
+    params.vertical = rect(4);%
+    % 得到屏幕的水平分辨率
+    params.horiz = rect(3); %
+    input_h = params.vertical/5;%最上面输入框占比1/5
+    inputRect = [0 0 params.horiz input_h];%输入框矩阵
+    % 根据分辨率调整刺激界面
+    row_S = 2;
+    column_S = 5;
+    r_stimuli = 0.7;%目标总宽度占屏幕宽度的比例
+    interH = 0.3*params.horiz/(column_S+1);%目标间间隔总宽度占水平像素0.3
+    sizeC=0.7*params.horiz/column_S;%每个目标边长
+    % ---------------------------------------------------------------------
+    [a,b] = WindowCenter(w);%返回窗口的中心点。
+    black = BlackIndex(w);%返回CLUT索引，以在当前屏幕深度生成黑色，假设有一个用于该深度的标准颜色查找表。
+    white = WhiteIndex(w);
+    gray = GrayIndex(w);  %gray:127.5
+    HideCursor;
+    % 等待2秒，若用WaitSecs(2)刺激会不稳定
+    delay1 = GetSecs();
+    delay2 = GetSecs();
+    while (delay2-delay1<2)
+        Screen('FillRect',w, black);
+        Screen('TextSize',w,textsize); %设置字号大小
+        [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,'Wait...');%获取文本边界
+        textwidth = normBoundsRect(3);
+        textheight =  normBoundsRect(4);
+        Screen('TextFont',w,'Times New Roman');%设置字体
+        Screen('DrawText',w,'Wait...',a-textwidth/2,b-textheight/2,white);
+        Screen('Flip',w);
+        delay2 = GetSecs();
+    end
+
+        for keyNum = 1:length(frequency)
+            mkdir([pwd,'\GUI2\',num2str(keyNum)]);
+            Screen('FillRect',w, black);
+            %217框内涂色
+            Screen('FillRect',w, gray ,[a-sizeC/2,b-sizeC/2,a+sizeC/2,b+sizeC/2]);
+            Screen('TextSize',w,textsize); %设置字号大小
+            [normBoundsRect,~] = Screen('TextBounds',w,character{keyNum});%获取文本边界
+            textwidth = normBoundsRect(3);
+            textheight =  normBoundsRect(4);
+            Screen('TextFont',w,'Times New Roman');%设置字体
+            Screen('DrawText',w,character{keyNum},a+sizeC/4-textwidth/2,b+sizeC/4-textheight/2,black);%绘制，使字符居中
+            %
+            Screen('TextSize',w,gazeSize); %设置字号大小
+            [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,gazetype);%获取文本边界
+            textwidth2 = normBoundsRect(3);
+            textheight2 =  normBoundsRect(4);
+            Screen('DrawText',w,gazetype,a-textwidth2/2,b-textheight2/2,[0 255 0]);%绘制注视点
+            Screen('Flip',w);
+            WaitSecs(0.02);% wait 0.02 s per frame
+            % -------------------------------------------------------------
+            % GetImage获取指定窗口中某个区域（边框内）中的图像
+            img = Screen('GetImage',w,[a-sizeC/2-2,b-sizeC/2+2,a+sizeC/2-2,b+sizeC/2+2]);
+            file = [pwd,'\GUI2\',num2str(keyNum),'\.jpg'];
+            imwrite(img,file, 'Quality',100);
+        end
+
+    RestrictKeysForKbCheck([]);
+    ShowCursor
+    clear Screen;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    disp('the experiment is over');
+    catch
+    RestrictKeysForKbCheck([]);
+    ShowCursor;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    psychrethrow(psychlasterror);
+end
+Screen('CloseAll');</pre>
+
+                <h4>Step4.m</h4>
+                <pre class="code-background">
+
+close all;
+clear ;
+clc;
+% -------------------------------------------------------------------------
+Screen('Preference', 'SkipSyncTests', 1);
+% -------------------------------------------------------------------------
+% 各目标的刺激频率
+character = {'1','2','3'};
+gazetype = '+';
+frequency = [8.2 8.8 9.4];
+phase = [0 0 0 ]*pi; % 相位信息
+frame_rate = 60;
+textsize = 40;% 目标中字号大小
+gazeSize = 50;%注视点字号
+displayTime = 5; % 5秒重复
+% -------------------------------------------------------------------------
+column=5;
+row=2;
+try
+    % ---------------------------------------------------------------------
+    KbName('UnifyKeyNames');
+    %把当前系统的键盘按键的命名方案统一转换为MacOX-X系统的命名方案，提高实验程序的可移植性
+    confirm =  KbName('Space');%32
+    escapekey = KbName('escape');%27
+    RestrictKeysForKbCheck([confirm,escapekey]);%限定按键检查范围，节省时间
+    [KeyIsDown,endrt,KeyCode] = KbCheck;
+    %按键判断：KeyIsDown若有按键则返回1，endrt按键时间s，KeyCode所按键的扫描码
+    WaitSecs(0.01);%等待指定时间
+    ListenChar(2);%屏蔽掉按键输出至MATLAB命令窗口
+    % ---------------------------------------------------------------------
+    % 打开screen
+    Screens = Screen('Screens');
+    ScreenNum = max(Screens);
+    [w, rect] = Screen('OpenWindow', ScreenNum);%创建主页面
+    % 将此刺激程序在CPU执行队列中的优先级提高到最高级别
+    Priority(MaxPriority(w));
+    % 得到屏幕的垂直分辨率
+    params.vertical = rect(4);
+    % 得到屏幕的水平分辨率
+    params.horiz = rect(3);
+    params.horiz = rect(3);
+    input_h = params.vertical/5;%最上面输入框占比1/5
+    inputRect = [0 0 params.horiz input_h];%输入框矩阵
+    % 根据分辨率调整刺激界面
+    row_S = 2;
+    column_S = 5;
+    r_stimuli = 0.7;%目标总宽度占屏幕宽度的比例
+    interH = 0.3*params.horiz/(column_S+1);%目标间间隔总宽度占水平像素0.3
+    sizeC=0.7*params.horiz/column_S;%每个目标边长
+    interV = (4/5*params.vertical-2*sizeC)/3;%
+    target_upshift = 2/3*interV;% 第一行目标距离输入框下边界的距离
+    % ---------------------------------------------------------------------
+    [a,b] = WindowCenter(w);%返回窗口的中心点。
+    black = BlackIndex(w);%返回CLUT索引，以在当前屏幕深度生成黑色，假设有一个用于该深度的标准颜色查找表。
+    white = WhiteIndex(w);
+    gray = GrayIndex(w);  %gray:127.5
+    HideCursor;
+     %% ------加载图片缓冲时间---------------------------------------------------------------
+    % 等待3秒，若用WaitSecs(3)刺激会不稳定
+
+    delay1 = GetSecs();
+    delay2 = GetSecs();
+    while (delay2-delay1<3)
+        Screen('FillRect',w, black);
+        Screen('TextSize',w,textsize); %
+        [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,'Wait...');%???
+        textwidth = normBoundsRect(3);
+        textheight =  normBoundsRect(4);
+        Screen('TextFont',w,'Times New Roman');
+        Screen('DrawText',w,'Wait...',a-textwidth/2,b-textheight/2,white);
+        Screen('Flip',w);
+        delay2 = GetSecs();
+    end
+
+    % ---------------------------------------------------------------------
+    %载入图片
+    home_path = [pwd,'\GUI2\'];
+    for target = 1:length(frequency)
+            file = [home_path,num2str(target),'\.jpg'];
+            stim_represent = imread(file);
+            texture(target) = Screen('MakeTexture', w,stim_represent);%创建纹理缓冲
+    end
+    % 计算每个目标的坐标---------------------------------------------------------------------
+     for rii=1:row
+       for cii=1:column
+           tii=(rii-1)*column+cii;
+          cheker_position(tii,:) = [interH+(sizeC+interH)*(cii-1)-2
+               input_h+interV+(sizeC+interV)*(rii-1)-2
+               (sizeC+interH)*cii+2
+               input_h+(sizeC+interV )*rii+2]';
+       end
+     end
+     cheker_position([1,2,4,5,7,8,9],:) = [];
+    % ---------------------------------------------------------------------
+    for ii=1:2
+        Screen('FillRect',w, black);
+        Screen('FillRect',w, gray ,inputRect);
+        [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,'BrainUp Rethink the Future');%???
+        textwidth = normBoundsRect(3);
+        textheight =  normBoundsRect(4);
+        Screen('TextFont',w,'Times New Roman');%
+        Screen('TextSize',w,70);
+        Screen('DrawText',w,'BrainUp Rethink the Future',a-textwidth/2,inputRect(4)/2-textheight/2,white);
+        for ii = 1:length(frequency)
+                Screen('DrawTextures',w,texture(ii),[0 0 sizeC+4 sizeC+4],cheker_position(ii,:));
+        end
+    end
+    Screen('Flip',w);
+    WaitSecs(3);
+    %% 生成不含输入框的，用来等待FBCCA期间呈现GUI
+    img = Screen('GetImage',w);%
+    file = [pwd,'\GUI.jpg'];
+    imwrite(img,file, 'Quality',100);
+
+    RestrictKeysForKbCheck([]);
+    ShowCursor
+    clear Screen;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    disp('the experiment is over');
+    catch
+    RestrictKeysForKbCheck([]);
+    ShowCursor;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    psychrethrow(psychlasterror);
+end
+Screen('CloseAll');</pre>
+
+                <h4>Step5.m</h4>
+                <pre class="code-background">
+% 画反馈图片和提示图片
+close all;
+clear ;
+clc;
+% -------------------------------------------------------------------------
+Screen('Preference', 'SkipSyncTests', 1);
+color = [255 0 0;0 0 255];%当前设置红色为提示图形，蓝色为反馈图形
+% -------------------------------------------------------------------------
+% 各目标的刺激频率
+character = {'1','2','3'};
+gazetype = '+';
+frequency = [8.2 8.8 9.4];
+phase = [0 0 0]*pi;
+frame_rate = 60;
+textsize = 40;% 目标中字号大小
+gazeSize = 50;%注视点字号
+displayTime = 5; % 绘制了5秒
+timepoint = [1:frame_rate*displayTime]/frame_rate;
+% -------------------------------------------------------------------------
+column=5;
+row=2;
+try
+    % ---------------------------------------------------------------------
+    KbName('UnifyKeyNames');
+    %把当前系统的键盘按键的命名方案统一转换为MacOX-X系统的命名方案，提高实验程序的可移植性
+    confirm =  KbName('Space');%32
+    escapekey = KbName('escape');%27
+    RestrictKeysForKbCheck([confirm,escapekey]);%限定按键检查范围，节省时间
+    [KeyIsDown,endrt,KeyCode] = KbCheck;
+    %按键判断：KeyIsDown若有按键则返回1，endrt按键时间s，KeyCode所按键的扫描码
+    WaitSecs(0.01);%等待指定时间
+    ListenChar(2);%屏蔽掉按键输出至MATLAB命令窗口
+    % ---------------------------------------------------------------------
+    % 打开screen
+    Screens = Screen('Screens');
+    ScreenNum = max(Screens);
+    [w, rect] = Screen('OpenWindow', ScreenNum);%创建主页面
+    % 将此刺激程序在CPU执行队列中的优先级提高到最高级别
+    Priority(MaxPriority(w));
+    % 得到屏幕的垂直分辨率
+    params.vertical = rect(4);
+    % 得到屏幕的水平分辨率
+    params.horiz = rect(3);
+    params.horiz = rect(3);
+    input_h = params.vertical/5;%最上面输入框占比1/5
+    inputRect = [0 0 params.horiz input_h];%输入框矩阵
+    % 根据分辨率调整刺激界面
+    row_S = 2;
+    column_S = 5;
+    r_stimuli = 0.7;%目标总宽度占屏幕宽度的比例
+    interH = 0.3*params.horiz/(column_S+1);%目标间间隔总宽度占水平像素0.3
+    sizeC=0.7*params.horiz/column_S;%每个目标边长
+    interV = (4/5*params.vertical-2*sizeC)/3;%
+    target_upshift = 2/3*interV;% 第一行目标距离输入框下边界的距离
+    % ---------------------------------------------------------------------
+    [a,b] = WindowCenter(w);%返回窗口的中心点。
+    black = BlackIndex(w);%返回CLUT索引，以在当前屏幕深度生成黑色，假设有一个用于该深度的标准颜色查找表。
+    white = WhiteIndex(w);
+    gray = GrayIndex(w);  %gray:127.5
+    HideCursor;
+    %% ------加载图片缓冲时间---------------------------------------------------------------
+    % 等待3秒，若用WaitSecs(3)刺激会不稳定
+
+    delay1 = GetSecs();
+    delay2 = GetSecs();
+    while (delay2-delay1<2)
+        Screen('FillRect',w, black);
+        Screen('TextSize',w,textsize); %
+        [normBoundsRect,offsetBoundsRect] = Screen('TextBounds',w,'Wait...');%???
+        textwidth = normBoundsRect(3);
+        textheight =  normBoundsRect(4);
+        Screen('TextFont',w,'Times New Roman');
+        Screen('DrawText',w,'Wait...',a-textwidth/2,b-textheight/2,white);
+        Screen('Flip',w);
+        delay2 = GetSecs();
+    end
+
+    % ---------------------------------------------------------------------
+    %载入图片
+    home_path = [pwd,'\GUI.jpg'];%stimuli_sequence\frame_300
+    stim_represent = imread(home_path);
+    texture = Screen('MakeTexture', w,stim_represent);%创建纹理缓冲
+    %计算每个目标的坐标----------------------------------------------------------------
+    for rii=1:row
+        for cii=1:column
+            tii=(rii-1)*column+cii;
+            cheker_position(tii,:) = [interH+(sizeC+interH)*(cii-1)-2
+                input_h+interV+(sizeC+interV)*(rii-1)-2
+                (sizeC+interH)*cii+2
+                input_h+(sizeC+interV )*rii+2]';
+        end
+    end
+     cheker_position([1,2,4,5,7,8,9],:) = []; % 保留3个目标
+    % ---------------------------------------------------------------------
+    for i = 1:size(color,1)
+        colori = color(i,:);
+        if colori == [255 0 0]
+            mkdir([pwd,'\CUE'])
+        else
+            mkdir([pwd,'\feedback_pictures'])
+        end
+        for ii=1:length(frequency)
+            Screen('FillRect',w, black);
+            Screen('DrawTextures',w,texture);
+            % 蓝色反馈边框
+            penwidth = 10;
+            Screen('FillRect',w,colori, [cheker_position(ii,1)-penwidth cheker_position(ii,2)-penwidth cheker_position(ii,3)+penwidth cheker_position(ii,2)]);%上边框
+            Screen('FillRect',w,colori, [cheker_position(ii,1)-penwidth cheker_position(ii,2)-penwidth cheker_position(ii,1) cheker_position(ii,4)+penwidth]);%左边框
+            Screen('FillRect',w,colori, [cheker_position(ii,1)-penwidth cheker_position(ii,4) cheker_position(ii,3)+penwidth cheker_position(ii,4)+penwidth]);%下边框
+            Screen('FillRect',w,colori, [cheker_position(ii,3) cheker_position(ii,2)-penwidth cheker_position(ii,3)+penwidth cheker_position(ii,4)+penwidth]); %右边框
+            Screen('Flip',w);
+            WaitSecs(0.5);% wait 1 s per frame
+            %% 生成不含输入框的，用来等待FBCCA期间呈现GUI
+            img = Screen('GetImage',w);%
+            if colori == [255 0 0]
+                file = [pwd,'\CUE\target_',num2str(ii),'.jpg'];
+            else
+                file = [pwd,'\feedback_pictures\target_',num2str(ii),'.jpg'];
+            end
+            imwrite(img,file, 'Quality',100);
+        end
+    end
+    RestrictKeysForKbCheck([]);
+    ShowCursor
+    clear Screen;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    disp('the experiment is over');
+catch
+    RestrictKeysForKbCheck([]);
+    ShowCursor;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    psychrethrow(psychlasterror);
+end
+Screen('CloseAll');</pre>
+
+                <h4 class="elevator-content-8">Dataflow</h4>
+
+                <h4>pGetData.m</h4>
+
+                <pre class="code-background">
+function data=pGetData(tcpip_client,dataBuffer,pkgGroups)
+if get(tcpip_client, 'BytesAvailable') > 0
+    signal=fread(tcpip_client,dataBuffer);
+    signal = native2unicode(signal,'UTF-8');
+    eeg = strcat(signal)';
+    data = char2eegmatrix(eeg,pkgGroups);
+else
+    data=[];
+end
+end</pre>
+
+                <h4>char2eegmatrix.m</h4>
+                <pre class="code-background">
+function dataAll = char2eegmatrix(eeg,pkgGroups)
+% tic
+chanNum = 8;
+if pkgGroups == 5
+    for chanIndex = 1:chanNum
+        chanLocation(chanIndex,:) = [0 1 2 3 4].*chanNum + repmat(chanIndex,1,5);
+    end
+    columnChannelIndex = reshape(chanLocation',1,40);% 转置为chan1:point1-5  chan2:point1-5.....chan8:point1-5
+    eegpackage =  strsplit(eeg,',')';
+    eegpackage(1) = [];
+    packageNum = floor(length(eegpackage)/46);
+    if packageNum  > 0
+        for i = 1:packageNum
+            L0 = (i-1)*46+1;
+            eegtxt(i,:) = eegpackage(L0:L0+45);
+        end
+        eegtxt(:,end) = [];
+        for j = 1:packageNum
+            for k = 1:45
+                eegdouble(j,k) = str2double(eegtxt{j,k});
+            end
+        end
+        data2 = eegdouble(:,2:41);
+        data3 = data2(:,columnChannelIndex);
+        dataAll = zeros(size(data3,1)*5,8);
+        for chan = 1:chanNum
+            chanIndexNew = (chan-1)*5+1:(chan-1)*5+5;%将所有行，按channel数据提取重新排列
+            dataAll(:,chan) = reshape(data3(:,chanIndexNew)',1,size(data3,1)*5);
+        end
+    else
+       dataAll = [];
+    end
+elseif pkgGroups == 1
+    eegpackage =  strsplit(eeg,',')';
+    eegpackage([1,2]) = [];
+    for i = 1: length(eegpackage)
+        eegdouble(i) = str2double(eegpackage{i,1});
+    end
+    dataAll = eegdouble;
+end
+% toc
+end</pre>
+
+                <h4 class="elevator-content-9">Algorithm</h4>
+
+                <h4>FBCCA.m</h4>
+
+                <pre class="code-background">
+function result = FBCCA(rawdata,channelSelection)
+% this is an  FBCCA function for SSVEP-based BCI
+% Input : channel*samplepoints
+% Output: Result index based freqStim
+% Ref:Chen X, Wang Y, Gao S, et al. Filter bank canonical correlation analysis for implementing a high-speed SSVEP-based brain–computer interface[J].
+% Journal of neural engineering, 2015, 12(4): 046008.
+freqStim = [8.2 8.8 9.4];
+rfs = 250;
+channelDelete = setdiff(1:8,channelSelection);
+rawdata(channelDelete,:) = [];
+channum=size(rawdata,1);%通道数
+N = size(rawdata,2);% 由输入的数据长度实时生成模板
+n = (1:N)/rfs;
+%预处理
+fs=rfs/2;
+nFilterBank = 5;
+weights = (1:nFilterBank).^(-1.25)+0.25;
+%% 滤波器设置
+% 50Hz陷波
+freqNotch=50;
+[filterPre.b, filterPre.a] = iirnotch(freqNotch/(rfs/2), freqNotch/(rfs/2)/35,-15);
+
+fhp = 90; fhs = 100;
+for nFB = 1:nFilterBank
+    flp = nFB*min(freqStim) - 2;
+    fls = nFB*min(freqStim) - 6;
+
+    %切比雪夫滤波器的参数
+    Wp=[flp/fs fhp/fs];
+    Ws=[fls/fs fhs/fs];
+
+    [N,Wn]=cheb1ord(Wp,Ws,3,30);
+    [filterBank(nFB).b, filterBank(nFB).a] = cheby1(N,0.5,Wn);
+end
+%% 预处理 滤波
+for chan=1:channum
+    %             notchdata = filtfilt(filterPre(1).b, filterPre(1).a,downsdata);%50陷波
+    notchdata = filtfilt(filterPre.b, filterPre.a,rawdata(chan, :));%50陷波
+    %             lowpassdata = filtfilt(filterPre(2).b, filterPre(2).a,notchdata);%90低通
+    lowpassdata=notchdata;
+    %各高通
+    tempdata = filtfilt(filterBank(1).b,filterBank(1).a,lowpassdata);%滤波和截取
+    bpdatah1(chan,:) = tempdata;
+    tempdata = filtfilt(filterBank(2).b,filterBank(2).a,lowpassdata);
+    bpdatah2(chan,:) = tempdata;
+    tempdata = filtfilt(filterBank(3).b,filterBank(3).a,lowpassdata);
+    bpdatah3(chan,:) = tempdata;
+    tempdata = filtfilt(filterBank(4).b,filterBank(4).a,lowpassdata);
+    bpdatah4(chan,:) = tempdata;
+    tempdata = filtfilt(filterBank(5).b,filterBank(5).a,lowpassdata);
+    bpdatah5(chan,:) = tempdata;
+%     tempdata = filtfilt(filterBank(6).b,filterBank(6).a,lowpassdata);
+%     bpdatah6(chan,:) = tempdata;
+end
+%-------------------------------------------------------------------
+    for ii = 1:length(freqStim)
+        s1 = sin(2*pi*freqStim(ii)*n);
+        s2 = cos(2*pi*freqStim(ii)*n);
+        s3 = sin(2*pi*2*freqStim(ii)*n);
+        s4 = cos(2*pi*2*freqStim(ii)*n);
+        s5 = sin(2*pi*3*freqStim(ii)*n);
+        s6 = cos(2*pi*3*freqStim(ii)*n);
+        s7 = sin(2*pi*4*freqStim(ii)*n);
+        s8 = cos(2*pi*4*freqStim(ii)*n);
+        s9 = sin(2*pi*5*freqStim(ii)*n);
+        s10 = cos(2*pi*5*freqStim(ii)*n);
+        s11 = sin(2*pi*6*freqStim(ii)*n);
+        s12 = cos(2*pi*6*freqStim(ii)*n);
+        condY(:,:,ii) = cat(2,s1',s2',s3',s4',s5',s6',s7',s8',s9',s10',s11',s12');%datalength * 6谐波*2 * 12目标
+        condY(:,:,ii) = condY(:,:,ii) - repmat(mean(condY(:,:,ii),1), length(n), 1);% remove mean  1250*12*7
+    end
+    % ------------------------------------------------------------------------
+        for cond = 1:length(freqStim)
+            [~,~,r] = canoncorr(bpdatah1',condY(:,:,cond));%计算相关系数，数据点要相同，所以模板也要取同样长度N
+            rr2(1,cond) = max(r);
+            [~,~,r] = canoncorr(bpdatah2',condY(:,:,cond));
+            rr2(2,cond) = max(r);
+            [~,~,r] = canoncorr(bpdatah3',condY(:,:,cond));
+            rr2(3,cond) = max(r);
+            [~,~,r] = canoncorr(bpdatah4',condY(:,:,cond));
+            rr2(4,cond) = max(r);
+            [~,~,r] = canoncorr(bpdatah5',condY(:,:,cond));
+            rr2(5,cond) = max(r);
+%             [~,~,r] = canoncorr(bpdatah6',condY(:,:,cond));
+%             rr2(6,cond) = max(r);
+        end
+        rrc=weights*(sign(rr2).*abs(rr2).^2);
+        [~, index] = sort(rrc);
+        result = index(end);
+
+end</pre>
+
+                <h4 class="elevator-content-10">Example</h4>
+
+                <h4>BrainTouch_SSVEP_Example.m</h4>
+
+                <pre class="code-background">
+%% demo展示刺激
+close all;
+clear ;
+clc;
+% -------------------------------------------------------------------------
+Screens = Screen('Screens');
+ScreenNum = max(Screens);%优先使用外接显示器做刺激
+% 检测屏幕的刷新频率是否为60Hz
+if Screen('FrameRate',ScreenNum)~=60
+    disp('屏幕刷新频率不是60Hz');
+    return;
+end
+Screen('Preference', 'SkipSyncTests', 1);
+frame_rate = 60;
+displaytime = 5;
+feedbacktime = 1;
+cuetime = 1;
+frequency = [8.2 8.8 9.4];%SSVEP多目标系统的刺激频率
+maxLength = (displaytime+feedbacktime+cuetime)*frame_rate;
+%% 随机生成刺激顺序---------------------------------------------------------
+blockNum = 15;% 定义刺激呈现组数
+for iblock = 1:blockNum
+    stimIndex(:,iblock) = randperm(length(frequency));
+end
+stimIndex = reshape(stimIndex,1,blockNum*length(frequency));
+%--------------------------------------------------------------------------
+[s, r]=system('ipconfig');
+iplocation = strfind(r,'IPv4 地址');
+ipaddress = r(iplocation+34:iplocation+45);
+params.chanNum = 8;%不包括trigger导联
+params.sampleRate = 250;
+params.dataLength = displaytime;
+params.serverPort = 9600;
+params.ipAddress = '192.168.1.20';%记录电脑的IP'192.168.1.20'
+buffSize = params.sampleRate*params.dataLength;
+circBuff = zeros(buffSize,params.chanNum);
+
+%% 客户端
+tcpip_client = tcpip(params.ipAddress, params.serverPort);
+fopen(tcpip_client);
+%% 配置参数=======================================================================================
+fwrite(tcpip_client,'config','char')% 向服务器请求设备参数
+configuration = [];
+while isempty(configuration)
+    while get(tcpip_client,'BytesAvailable')>0
+        configuration = fread(tcpip_client,get(tcpip_client,'BytesAvailable'));
+        configuration = native2unicode(configuration,'UTF-8');
+        configuration = strcat(configuration)';
+    end
+end
+configuration = jsondecode(configuration);% 转为结构体数据类型
+dataBuffer = configuration.pkgLength;%提取TCP传输关键参数：字节数
+% set(tcpip_client,'InputBufferSize',dataBuffer);
+pkgGroups = configuration.pkgGroups;%提取TCP传输关键参数：蓝牙组包个数，不同设备解码方式不一致
+fwrite(tcpip_client,'start','char')%开始数据传输指令
+try
+    % ---------------------------------------------------------------------
+
+    % 使得matlab命令行对刺激程序的按键不监听
+    ListenChar(2);
+    % ---------------------------------------------------------------------
+    % 打开screen
+    Screens = Screen('Screens');
+    ScreenNum = max(Screens);%优先使用外接显示器做刺激
+    [w, rect] = Screen('OpenWindow', ScreenNum);%[0 0 0],[0 0 1100 500]
+    % 将此刺激程序在CPU执行队列中的优先级提高到最高级别
+    Priority(MaxPriority(w));
+    % 得到屏幕的垂直分辨率
+    params.vertical = rect(4);
+    % 得到屏幕的水平分辨率
+    params.horiz = rect(3);
+    % ---------------------------------------------------------------------
+    black = BlackIndex(w);
+    white = WhiteIndex(w);
+    gray  = GrayIndex(w);
+    %     HideCursor;
+    [a,b] = WindowCenter(w);%返回窗口的中心点。
+
+    % ---------------------------------------------------------------------
+    %监听按键
+    KbName('UnifyKeyNames');
+    confirm =  KbName('Space');
+    escapekey = KbName('escape');
+    leftarrow = KbName('leftarrow');
+    uparrow = KbName('uparrow');
+    downarrow = KbName('downarrow');
+    rightarrow = KbName('rightarrow');
+    % 只监听特定的几个键盘按键情况，对其他所有键不监听
+    RestrictKeysForKbCheck([confirm,escapekey,leftarrow,rightarrow,uparrow,downarrow]);
+    [KeyIsDown,endrt,KeyCode] = KbCheck;
+    WaitSecs(0.01);
+    %% ------加载图片缓冲时间---------------------------------------------------------------
+    % 等待3秒，若用WaitSecs(3)刺激会不稳定
+    textsize = 60;
+    [normBoundsRect,~] = Screen('TextBounds',w,'Wait...');%???
+    textwidth = normBoundsRect(3);
+    textheight =  normBoundsRect(4);
+    Screen('TextFont',w,'Times New Roman');
+    Screen('TextSize',w,textsize); %
+    delay1 = GetSecs();
+    delay2 = GetSecs();
+    while (delay2-delay1<3)
+        Screen('FillRect',w, black);
+        Screen('DrawText',w,'Wait...',a-textwidth/2,b-textheight/2,white);
+        Screen('Flip',w);
+        delay2 = GetSecs();
+    end
+    % 按目标顺序预加载stimuli图片
+    home_path = [pwd,'\stimuli_sequence\'];
+    for ii = 1:frame_rate*displaytime
+        file = [home_path,'frame_',num2str(ii),'.jpg'];
+        stim_represent = imread(file);
+        stim_represent = imresize(stim_represent,[rect(4),rect(3)]);
+
+        texture(ii) = Screen('MakeTexture', w,stim_represent);
+    end
+    % 加载刺激提示图片
+    home_path = [pwd,'\CUE\'];
+    for ii = 1:length(frequency)
+        file = [home_path,'target_',num2str(ii),'.jpg'];
+        stim_represent = imread(file);
+        stim_represent = imresize(stim_represent,[rect(4),rect(3)]);
+        texture_CUE(ii) = Screen('MakeTexture', w,stim_represent);
+    end
+    %加载GUI界面图片
+    file = [pwd,'\GUI.jpg'];
+    stim_represent = imread(file);
+    stim_represent = imresize(stim_represent,[rect(4),rect(3)]);
+    textureGUI = Screen('MakeTexture', w,stim_represent);
+    %加载反馈图片
+    home_path = [pwd,'\feedback_pictures\'];
+    for ii = 1:length(frequency)
+        file = [home_path,'target_',num2str(ii),'.jpg'];
+        stim_represent = imread(file);
+        stim_represent = imresize(stim_represent,[rect(4),rect(3)]);
+        texture_feedback(ii) = Screen('MakeTexture', w,stim_represent);
+    end
+    %% ---------------------------------------------------------------------
+
+    Screen('DrawTextures',w,textureGUI);
+    Screen('Flip',w);
+    KbWait;
+    WaitSecs(1);
+    fixTime= timer( 'Period', 0.002);
+    set(fixTime, 'ExecutionMode', 'FixedRate');
+    set(fixTime,'TimerFcn',['channelData = pGetData(tcpip_client,dataBuffer,pkgGroups);', 'if ~isempty(channelData)',...
+        'circBuff = [circBuff(size(channelData,1)+1:end,:);channelData];','end;',...
+        ]);
+    start(fixTime);
+    %% -----------------------------------------------------------------------
+    % ssvep-------------------------------------
+    count2 = 1;
+    resultCount = 0;
+    while count2 < inf
+        %      按键扫描
+        [keyisdown,~,keycode] = KbCheck;
+        if keyisdown
+            if keycode(uparrow)
+                count2 = 1;
+                KbPressWait;
+            elseif keycode(downarrow)
+                continue
+            elseif keycode(escapekey)
+                stop(fixTime);
+                sca;close all;
+                return;
+            end
+        end
+        % 刺激-------------------------------------------------------------
+        Index = mod(count2,maxLength);%1-300循环
+        if Index == 0
+            Index = maxLength;
+        end
+        %SSVEP刺激---------------------------------------------------------------------------------------------------------------------------------------
+        if Index <= cuetime*frame_rate
+            Screen('DrawTextures',w,texture_CUE(stimIndex(resultCount+1)));
+            Screen('Flip',w);
+        elseif Index > cuetime*frame_rate && Index <= (cuetime+displaytime)*frame_rate
+            frameindex = mod(Index,displaytime*frame_rate);%1-displaytime*frame_rate循环
+            if frameindex == 0
+                frameindex = displaytime*frame_rate;
+            end
+            Screen('DrawTextures',w,texture(frameindex));
+            Screen('Flip',w);
+            if Index == (cuetime+displaytime)*frame_rate
+                dataCond = circBuff;
+            end
+        elseif  Index >  (cuetime+displaytime)*frame_rate && Index <= maxLength
+
+            if Index == (cuetime+displaytime)*frame_rate +1
+                Screen('DrawTextures',w,textureGUI);
+                Screen('Flip',w);
+                 result = FBCCA(dataCond',[1 2 3 4 5 6 7]);
+                resultCount = resultCount + 1;
+                dataAll(:,:,resultCount) = circBuff;
+                disp(['第',num2str(resultCount),'个结果是：',num2str(result)])
+            end
+            Screen('DrawTextures',w,texture_feedback(result));
+            Screen('Flip',w);
+        end
+        count2 = count2 + 1;
+    end
+    % ---------------------------------------------------------------------
+    ShowCursor;
+    Screen('CloseAll');
+    % 恢复到此程序运行的原有优先级别
+    Priority(0);
+    ListenChar(0);
+    disp('the experiment is over');
+catch
+    ShowCursor;
+    Screen('CloseAll');
+    Priority(0);
+    ListenChar(0);
+    fclose(tcpip_client);
+    delete(tcpip_client);
+    stop(fixTime);
+end
+Screen('CloseAll');</pre>
+
+                <h2 class="elevator-content-11">Downloadable files</h2>
+
+                <p>点击下载：<a href="dload/Psychtoolbox-3-Psychtoolbox-3-3.0.19.0-0-g39c32e5.zip">Psychtoolbox-3-Psychtoolbox-3-3.0.19.0-0-g39c32e5.zip</a></p>
+                <p>点击下载：<a href="dload/gstreamer-1.0-devel-msvc-x86_64-1.22.0.msi">gstreamer-1.0-devel-msvc-x86_64-1.22.0.msi</a></p>
+                <p>点击下载：<a href="dload/gstreamer-1.0-msvc-x86_64-1.22.0.msi">gstreamer-1.0-msvc-x86_64-1.22.0.msi</a></p>
+                <p>点击下载：<a href="dload/BrainTouch_SSVEP_Example.zip">BrainTouch_SSVEP_Example.zip</a></p>
+
+                <h2 class="elevator-content-12">References</h2>
+                <p>点击下载：<a href="dload/pnas.1508080112.pdf">pnas.1508080112.pdf</a></p>
+            </div>
+        </div>
+
+    </div>
+    <!-- 正文模块 end -->
+
+
+    <!-- 底部模块 start -->
+    <div class="footer-bg" id="footer">
+        <div class="footer w">
+
+            <div class="left">
+                <h4>
+                    <div class="blue-strip"></div>
+                    商务合作
+                </h4>
+                <p>Copyright <span class="icon-span">&#xe902;</span> 2023 BrainUp.All rights reserved</p>
+            </div>
+
+            <div class="right">
+                <!--                <dl>-->
+                <!--                    <dt>技术合作</dt>-->
+                <!--                    <dd>罗先生</dd>-->
+                <!--                    <dd><span class="icon-span">&#xe945;</span> luojunwen@naolubrain.com</dd>-->
+                <!--                </dl>-->
+
+                <dl>
+                    <dt></dt>
+                    <dd>叶女士</dd>
+                    <dd><span class="icon-span">&#xe945;</span> yexiaochen@naolubrain.com</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="back_to_the_top">
+            <img src="images/lab/back_to_the_top.png" alt="">
+        </div>
+
+    </div>
+    <!-- 底部模块 end -->
+
+
+    <!-- 引入 js -->
+    <script src="js/lodash.min.js"></script>
+    <script src="js/flexible.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/instructions.js"></script>
+</body>
+</html>

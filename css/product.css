@@ -1,0 +1,791 @@
+/* 两个大小不一样, 层叠掉原来的 banner lab img 大小 */
+.header-bg {
+    position: relative;
+    background: #000; /* 层叠掉背景图, 产品页没有背景图 */
+}
+
+
+
+.banner .left {
+    padding-top: 1.16796875rem;
+}
+
+.banner .left img {
+    width: 3.33984375rem;
+    height: 0.375rem;
+}
+
+.banner .left p {
+    margin-top: 0.3125rem;
+}
+
+.banner .left .btn {
+    position: relative;
+    /*float: left;*/
+    margin-top: 0.83203125rem;
+    width: 0.8125rem;
+    height: 0.27734375rem;
+    z-index: 101;
+}
+
+.banner .right {
+    margin-top: 0.58984375rem;
+}
+
+.banner .right img {
+    display: block;
+    width: 3.54296875rem;
+    height: 3.08203125rem;
+}
+
+.banner .left button {
+    float: left;
+    margin: 0;
+}
+
+.banner .left .matlab-logo,
+.banner .left .python-logo,
+.banner .left .arduino-logo,
+.banner .left .raspberry-Pi-logo,
+.banner .left .nvidia-logo {
+    float: left;
+    margin-top: 0.3125rem;
+}
+
+.banner .left .matlab-logo {
+    width: 1.04296875rem;
+    height: 0.26171875rem;
+}
+
+.banner .left .python-logo {
+    width: 0.31640625rem;
+    height: 0.36328125rem;
+    margin-left: 0.15625rem;
+    margin-top: 0.26171875rem;
+}
+
+.banner .left .arduino-logo {
+    width: 0.37890625rem;
+    height: 0.25390625rem;
+    margin-left: 0.15625rem;
+}
+
+.banner .left .raspberry-Pi-logo {
+    width: 0.84765625rem;
+    height: 0.26171875rem;
+    margin-left: 0.15625rem;
+}
+
+.banner .left .nvidia-logo {
+    width: 0.328125rem;
+    height: 0.3125rem;
+    margin-left: 0.15625rem;
+}
+
+.banner .left .matlab-logo img,
+.banner .left .python-logo img,
+.banner .left .arduino-logo img,
+.banner .left .raspberry-Pi-logo img,
+.banner .left .nvidia-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-cross-border {
+    position: absolute;
+    /*top: 2.83203125rem;*/
+    left: 0.53125rem;
+    bottom: 0;
+    width: 8.9375rem;
+    height: 1.15625rem;
+}
+
+/* 白底 & 三个小图标 start */
+.three-icon {
+    position: relative;
+    height: 1.98046875rem;
+}
+
+.three-icon div {
+    position: absolute;
+    top: 0.51953125rem;
+    text-align: center;
+}
+
+
+.three-icon div:nth-child(1) {
+    left: 0.140625rem;
+}
+
+.three-icon div:nth-child(2) {
+    /*left: 3.046875rem;*/
+    left: 3.2578125rem;
+}
+
+.three-icon div:nth-child(3) {
+    right: 0.140625rem;
+}
+
+
+.three-icon div img {
+    display: block;
+    width: 0.51171875rem;
+    height: 0.51953125rem;
+    margin: 0 auto 0.15625rem;
+}
+
+.three-icon div p {
+    font-size: 0.125rem;
+}
+/* 白底 & 三个小图标 end */
+
+
+/* 高性能非侵入式干电极脑电采集设备 start */
+.eeg_equipment {
+    background: #F3F3F3;
+    height: 3.93359375rem;
+}
+
+.eeg_equipment .content {
+    position: relative;
+}
+
+.eeg_equipment .content .left {
+    position: absolute;
+    top: 0.83203125rem;
+}
+
+.eeg_equipment .content .left img {
+    width: 3.40234375rem;
+    height: 2.26171875rem;
+}
+
+.eeg_equipment .content .right {
+    position: absolute;
+    top: 1.04296875rem;
+    right: 0;
+    width: 2.984375rem;
+}
+
+.eeg_equipment .content .right h3 {
+    font-size: 0.1875rem;
+}
+
+.eeg_equipment .content .right ul {
+    font-size: 0.09375rem;
+    float: left;
+}
+
+.eeg_equipment .content .right .ul-div {
+    height: 0.484375rem;
+    margin: 0.41796875rem 0 0.19921875rem;
+}
+
+.eeg_equipment .content .right .ul-left {
+    margin-right: 0.6875rem;
+}
+
+.eeg_equipment .content .right ul li {
+    position: relative;
+    margin-bottom: 0.1171875rem;
+}
+
+.eeg_equipment .content .right ul li span {
+    margin-left: 0.09765625rem;
+}
+
+.eeg_equipment .content .right ul li::before {
+    position: absolute;
+    content: "";
+    top: 0.01953125rem;
+    width: 0.0234375rem;
+    height: 0.09375rem;
+    background-color: #3520FF;
+}
+
+.eeg_equipment .content .right button {
+    position: relative;
+    float: left;
+    border: 1px solid #00000B;
+    border-radius: 0.0625rem;
+    font-size: 0.09375rem;
+    cursor: pointer;
+    padding: 0.078125rem 0.3125rem 0.078125rem 0.15625rem;
+}
+
+
+.eeg_equipment .content .right button:hover {
+    background-color: #CCFF02;
+}
+
+
+.eeg_equipment .content .right button::after {
+    position: absolute;
+    content: "";
+    background: url("../images/lab/forward_icon.png") no-repeat;
+    background-size: 0.109375rem 0.08984375rem;
+    width: 0.109375rem;
+    height: 0.08984375rem;
+    top: 0.09765625rem;
+    right: 0.15625rem;
+}
+
+/* 高性能非侵入式干电极脑电采集设备 end */
+
+
+/* BrainTouch Lab 脑电可视化软件及数据应用 start */
+.eeg_data_application {
+    background-color: #fff;
+    height: 4.30859375rem;
+}
+
+.eeg_data_application .content {
+    position: relative;
+}
+
+.eeg_data_application .content div:nth-child(1) img {
+    position: absolute;
+    top: 0.51953125rem;
+    right: 0;
+    width: 3.94140625rem;
+    height: 3.78515625rem;
+}
+
+.eeg_data_application .content div:nth-child(2) {
+    position: absolute;
+    text-align: left;
+    width: 3.01953125rem;
+    top: 1.04296875rem;
+    left: 0;
+}
+
+.eeg_data_application .content div:nth-child(2) h3 {
+    font-size: 0.1875rem;
+    margin-bottom: 0.20703125rem;
+}
+
+.eeg_data_application .content div:nth-child(2) p {
+    font-size: 0.09375rem;
+}
+
+
+/* matlab logo*/
+.eeg_data_application .content div:nth-child(3) img {
+    position: absolute;
+    top: 2.30859375rem;
+    /*right: 1.88671875rem;*/
+    left: 0;
+    width: 0.7rem;
+    /*height: 0.29296875rem;*/
+}
+
+
+/* python logo */
+.eeg_data_application .content div:nth-child(4) img {
+    position: absolute;
+    top: 2.21875rem;
+    left: 0.75rem;
+    width: 0.3rem;
+}
+
+
+/* arduino logo */
+.eeg_data_application .content div:nth-child(5) img {
+    position: absolute;
+    top: 2.23828125rem;
+    left: 1.1rem;
+    width: 0.4rem;
+}
+
+
+/* raspberry pi logo */
+.eeg_data_application .content div:nth-child(6) img {
+    position: absolute;
+    top: 2.23828125rem;
+    left: 1.6rem;
+    width: 0.85rem;
+}
+
+
+/* nvidia logo */
+.eeg_data_application .content div:nth-child(7) img {
+    position: absolute;
+    top: 2.23828125rem;
+    left: 2.5rem;
+    width: 0.35rem;
+}
+
+
+.eeg_data_application .content button:hover {
+    background-color: #CCFF02;
+}
+
+.eeg_data_application .content button {
+    position: absolute;
+    border: 1px solid #00000B;
+    border-radius: 0.0625rem;
+    font-size: 0.09375rem;
+    cursor: pointer;
+    padding: 0.078125rem 0.3125rem 0.078125rem 0.15625rem;
+    background-color: #fff;
+}
+
+
+.eeg_data_application .content div:nth-child(8) button {
+    width: 1.515625rem;
+    top: 3.01953125rem;
+    left: 0;
+}
+
+.eeg_data_application .content div:nth-child(9) button {
+    width: 1.234375rem;
+    top: 3.01953125rem;
+    left: 1.8125rem;
+}
+
+.eeg_data_application .content button::after {
+    position: absolute;
+    top: 0.09765625rem;
+    right: 0.15625rem;
+    content: "";
+    background: url("../images/lab/forward_icon.png") no-repeat;
+    background-size: 0.109375rem 0.08984375rem;
+    width: 0.109375rem;
+    height: 0.08984375rem;
+}
+/* BrainTouch Lab 脑电可视化软件及数据应用 end */
+
+
+/* 高质量 EEG系统参数 及数据质量 start */
+.high-quality-eeg {
+    height: 3.62890625rem;
+    background: #010204;
+}
+
+.high-quality-eeg .content {
+    position: relative;
+    height: 100%;
+}
+
+.high-quality-eeg .content h4 {
+    font-size: 0.1875rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    padding-top: 0.96484375rem;
+}
+
+.high-quality-eeg .content .ul-div {
+    margin-top: 0.43359375rem;
+}
+
+.high-quality-eeg .content p {
+    position: relative;
+    display: inline-block;
+    color: #ADADC6;
+    padding-left: 0.1rem;
+}
+
+
+.high-quality-eeg .content span {
+    float: right;
+    color: #FFFFFF;
+    margin-left: 0.20703125rem;
+}
+
+
+.high-quality-eeg .content ul {
+    float: left;
+
+}
+
+.high-quality-eeg .content ul:nth-of-type(2) {
+    margin-left: 1rem;
+}
+
+.high-quality-eeg .content ul:nth-of-type(3) {
+    float: right;
+}
+
+.high-quality-eeg .content li {
+    margin-bottom: 0.078125rem;
+    font-size: 0.09375rem;
+}
+
+.high-quality-eeg .content i {
+    position: absolute;
+    width: 0.0234375rem;
+    height: 0.09rem;
+    background-color: #3520FF;
+    top: 0.015625rem;
+    left: 0;
+}
+
+/* 高质量 EEG系统参数 及数据质量 end */
+
+
+/* 抗干扰能力多场景生活环境下的适用性 start */
+.multi-environment-usability {
+    height: 6.65625rem;
+    background-color: #fff;
+}
+
+.multi-environment-usability .content {
+    position: relative;
+}
+
+.multi-environment-usability .content h2 {
+    position: absolute;
+    top: 1.04296875rem;
+    left: 3.59765625rem;
+    font-size: 0.1875rem;
+    font-family: PingFang SC;
+    font-weight: bold;
+    color: #010204;
+}
+
+.multi-environment-usability .content div:nth-child(1) {
+    position: absolute;
+    top: 1.04296875rem;
+    left: 0;
+    width: 1.5rem;
+    height: 1.62109375rem;
+    text-align: center;
+}
+
+.multi-environment-usability .content div:nth-child(1) img {
+    width: 1.5rem;
+    height: 1.62109375rem;
+}
+
+.multi-environment-usability .content div p {
+    font-size: 0.09375rem;
+    margin-top: 0.10546875rem;
+    text-align: center;
+}
+
+
+.multi-environment-usability .content div:nth-of-type(2),
+.multi-environment-usability .content div:nth-of-type(3),
+.multi-environment-usability .content div:nth-of-type(4),
+.multi-environment-usability .content div:nth-of-type(5) {
+    position: absolute;
+    top: 1.78515625rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(2) {
+    left: 1.76171875rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(3) {
+    left: 3.234375rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(4) {
+    right: 1.47265625rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(5) {
+    top: 1.78515625rem;
+    right: 0;
+}
+
+.multi-environment-usability .content div:nth-of-type(2) img,
+.multi-environment-usability .content div:nth-of-type(3) img,
+.multi-environment-usability .content div:nth-of-type(4) img,
+.multi-environment-usability .content div:nth-of-type(5) img {
+    display: block;
+    width: 1.31640625rem;
+    height: 0.984375rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(6),
+.multi-environment-usability .content div:nth-of-type(7),
+.multi-environment-usability .content div:nth-of-type(8) {
+    position: absolute;
+    top: 3.37890625rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(6) {
+    left: 0;
+}
+
+.multi-environment-usability .content div:nth-of-type(6) img {
+    display: block;
+    width: 2.98046875rem;
+    height: 2.234375rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(7) {
+    left: 3.0859375rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(7) img {
+    display: block;
+    width: 2.39453125rem;
+    height: 1.55859375rem;
+}
+
+.multi-environment-usability .content div:nth-of-type(8) {
+    right: 0;
+}
+
+.multi-environment-usability .content div:nth-of-type(8) img {
+    display: block;
+    width: 1.91796875rem;
+    height: 1.55859375rem;
+}
+
+.multi-environment-usability .content > p:last-child {
+    position: absolute;
+    top: 5.203125rem;
+    right: 0;
+    font-size: 0.09375rem;
+    font-family: PingFang SC;
+    font-weight: 400;
+}
+
+.multi-environment-usability .content > p:last-child span {
+    margin-left: 0.09375rem;;
+}
+
+.multi-environment-usability .content > p:last-child::before {
+    position: absolute;
+    content: "";
+    top: 0.01953125rem;
+    width: 0.0234375rem;
+    height: 0.09375rem;
+    background-color: #3520FF;
+}
+
+/* 抗干扰能力多场景生活环境下的适用性 end */
+
+
+/* 舒适且通用的可穿戴设计 start */
+.wearable-design {
+    background-color: #f3f3f3;
+    height: 5.06640625rem;
+}
+
+.wearable-design .content {
+    position: relative;
+}
+
+.wearable-design .content div h4 {
+    font-size: 0.1875rem;
+    margin-bottom: 0.20703125rem;
+}
+
+.wearable-design .content div p {
+    font-size: 0.09375rem;
+}
+
+.wearable-design .content div:nth-child(1) {
+    position: absolute;
+    top: 1.36328125rem;
+    left: 0;
+    width: 2.75390625rem;
+}
+
+.wearable-design .content div:nth-child(2) img {
+    position: absolute;
+    top: 1.04296875rem;
+    left: 3.16015625rem;
+    width: 1.89453125rem;
+    height: 1.421875rem;
+}
+
+.wearable-design .content div:nth-child(3) img {
+    position: absolute;
+    top: 1.04296875rem;
+    right: 0;
+    width: 2.234375rem;
+    height: 1.421875rem;
+}
+
+.wearable-design .content div:nth-child(4) img {
+    position: absolute;
+    top: 2.671875rem;
+    left: 0;
+    width: 4.19140625rem;
+    height: 1.35546875rem;
+}
+
+.wearable-design .content div:nth-child(5) img {
+    position: absolute;
+    top: 2.671875rem;
+    right: 0;
+    width: 2.78515625rem;
+    height: 1.35546875rem;
+}
+
+/* 舒适且通用的可穿戴设计 end */
+
+
+/* 研究与应用研发 start */
+.industry-application {
+    height: 10.84375rem;
+}
+
+.industry-application .content {
+    position: relative;
+}
+
+
+/* 垂直 logo 所在 div */
+.industry-application .content .logo-div {
+    position: absolute;
+    top: 2.47265625rem;
+    left: -0.87109375rem;
+}
+
+/* 垂直 logo 图片 */
+.industry-application .content .logo-div img {
+    width: 0.578125rem;
+    height: 3.90625rem;
+}
+
+.industry-application .content > h3 {
+    position: absolute;
+    font-size: 0.1875rem;
+    font-weight: bold;
+    color: #010204;
+}
+
+.industry-application .content > h3:nth-of-type(1) {
+    left: 3.1015625rem;
+    top: 1.04296875rem
+}
+
+.industry-application .content > h3:nth-of-type(2) {
+    left: 3.37890625rem;
+    top: 8.26171875rem;
+}
+
+
+.industry-application .content .divs {
+    position: absolute;
+    width: 100%;
+    height: 5.48828125rem;
+    top: 1.734375rem;
+}
+
+.industry-application .content .divs .line {
+    width: 100%;
+    height: 1.29296875rem;
+}
+
+.industry-application .content .divs .line div {
+    position: relative;
+    float: left;
+    width: 1.796875rem;
+    height: 1.29296875rem;
+    border-radius: 0.08203125rem;
+    margin: 0 0.1015625rem 0.1015625rem 0;
+    background-color: #fff;
+    padding: 0 0.1953125rem;
+}
+
+.industry-application .content .divs div:nth-child(4),
+.industry-application .content .divs div:nth-child(8),
+.industry-application .content .divs div:nth-child(12),
+.industry-application .content .divs div:nth-child(16) {
+    margin: 0;
+}
+
+.dark-background {
+    background-color: #F3F3F3!important;
+    border: 3px solid #F3F3F3;
+    border-radius: 0.08203125rem;
+}
+
+.light-background {
+    border: 3px solid #F3F3F3;
+    border-radius: 0.08203125rem;
+    background: #fff;
+}
+
+
+
+.industry-application .content .divs h4 {
+    text-align: center;
+    font-size: 0.125rem;
+    font-weight: bold;
+    color: #010204;
+    margin-top: 0.12890625rem;
+}
+
+
+.industry-application .content .divs p {
+    display: inline-block;
+    width: 1.40625rem;
+    height: 0.7265625rem;
+    font-size: 0.09375rem;
+    font-weight: 400;
+    color: #494952;
+    margin-top: 0.06640625rem;
+    /*padding-top: 0.43359375rem;*/
+}
+
+
+/* 用户指南 */
+.industry-application .content .download,
+.industry-application .content .project-hub-btn {
+    position: absolute;
+    top: 8.95703125rem;
+    width: 2.5625rem;
+    height: 0.84375rem;
+    border: 3px solid #ADADC6;
+    border-radius: 0.08203125rem;
+    cursor: pointer;
+}
+
+.industry-application .content .download:hover,
+.industry-application .content .project-hub-btn:hover {
+    background-color: #CCFF02;
+}
+
+
+.industry-application .content .download {
+    left: 0.65625rem;
+}
+
+.industry-application .content .project-hub-btn {
+    right: 0.65625rem;
+}
+
+.industry-application .content .download img,
+.industry-application .content .project-hub-btn img {
+    position: absolute;
+    top:0.20703125rem;
+    left: 0.3125rem;
+    width: 0.41796875rem;
+    height: 0.41796875rem;
+}
+
+.industry-application .content .download h4,
+.industry-application .content .project-hub-btn h4 {
+    position: absolute;
+    top: 0.20703125rem;
+    left: 0.890625rem;
+    font-size: 0.125rem;
+    font-weight: bold;
+    color: #010204;
+}
+
+.industry-application .content .download p,
+.industry-application .content .project-hub-btn p {
+    position: absolute;
+    top: 0.43359375rem;
+    left: 0.88671875rem;
+    font-size: 0.09375rem;
+    font-weight: 400;
+    color: #494952;
+    white-space: nowrap;
+}
+
+.industry-application .content > div:nth-of-type(8) > p {
+    right: 0.21875rem;
+}
+
+/* 行业应用 end */

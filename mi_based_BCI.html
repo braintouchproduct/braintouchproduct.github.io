@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>BrainTouch</title>
+
+<!--    <link rel="stylesheet" href="css/html_fontsize.css">-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/eye_closed_detection.css">
+</head>
+
+
+<body>
+    <!-- 背景图 start -->
+    <div class="header-bg" id="header_bg">
+        <!-- header 部分 start -->
+        <div class="header-wrapper">
+            <div class="header w">
+                <!-- logo  -->
+                <div class="header-logo">
+                    <h1>
+                        <a href="index.html" title="">
+                            <img src="images/index/logo_header.png" alt="">
+                        </a>
+                    </h1>
+                </div>
+
+                <!-- 导航部分 start -->
+                <ul class="header-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="product-link">
+                        <a href="javascript:void(0);" class="active">产品</a>
+                        <ul class="second-nav">
+                            <li><a href="product_lab.html">BrainTouch Lab</a></li>
+                            <li><a href="product_sdk.html">BrainTouch SDK</a></li>
+                        </ul>
+                    </li>
+<!--                    <li><a href="industry_cases.html">行业案例</a></li>-->
+                    <li><a href="javascript:void(0);" class="contact-us">联系我们</a></li>
+                </ul>
+                <!-- 导航部分 end -->
+            </div>
+        </div>
+        <!-- header 部分 end -->
+    </div>
+    <!-- 背景图 end -->
+
+
+    <!-- 正文模块 start -->
+    <div class="container w clearfix">
+        <h4 class="clearfix">
+            <a href="product_hub.html" class="back-link">
+                <span>产品 &gt; Project Hub</span>
+            </a>
+        </h4>
+
+
+        <div class="title">
+            <h3>BrainTouch Lab Demo: MI-Based BCI</h3>
+        </div>
+
+
+        <div class="main-content clearfix">
+            <!-- 正文左侧部分 -->
+            <div class="left clearfix">
+                <div class="nav">
+                    <ul id="nav-ul" class="clearfix">
+                        <li><a data-id='1' class="a-title elevator-1 active">Contents</a></li>
+                        <li><a data-id='2' class="a-text elevator-2">Intro</a></li>
+                        <li><a data-id='3' class="a-title elevator-3">Dependency</a></li>
+                        <li><a data-id='4' class="a-title elevator-4">Description</a></li>
+                        <li><a data-id='5' class="a-title elevator-5">Code</a></li>
+                        <li><a data-id='6' class="a-title elevator-6">Files</a></li>
+                    </ul>
+                </div>
+
+                <div class="vertical-logo">
+                    <img src="images/lab_instr/vertical-logo@2x.png" alt="">
+                </div>
+
+            </div>
+
+            <!-- 正文右侧部分 -->
+            <div class="right main-text clearfix">
+                <h2 class="elevator-content-1">Contents</h2>
+                <h2 class="elevator-content-2">Intro</h2>
+                <p>
+                    This project is a prime example of using BrainTouch and Python to build an EEG focus and intention recognition system. The aim is to demonstrate how to quickly and effectively structure an EEG-BCI framework using the BrainTouch device.
+                    EEG bandpower will serve as the indicator of intention level, as high rhythm power increases when someone focuses their mind on imagining or intending to do something. Additionally, ERD/ERS may be a better way to achieve this goal. We use PyQt5 as the presentation, you can easily replace it with your stimulation.
+                </p>
+
+                <img src="images/mi_based_bci/mi_based_demo.gif" alt="">
+                
+                <h2 class="elevator-content-3">Dependency</h2>
+                <ul class="ul-need-list-style ul-ident-1-fontsize">
+                    <li>Python 3.6+</li>
+                    <li>BrainTouch & BrainTouch lab SDK</li>
+                    <li>PyQt5</li>
+                </ul>
+
+                <h2 class="elevator-content-4">Description</h2>
+                <p>
+                    There are two .py files in this project. BrainTouch_socket.py is the standard implementation of the BrainTouch data stream. We use the class BrainTouch_socket.DataStream to get real-time EEG raw data in the BrainTouch_Demo, which includes preprocessing of the EEG raw data and presentation of paradigms. As an interactive sample, we have a Pool game where participants are supposed to focus on imagining hitting the white ball. The program will detect changes in the bandpower of their EEG signal as well as their neural activation. Then, it switches to the successfully hit screen.
+                </p>
+
+                <h2 class="elevator-content-5">Code</h2>
+                <p>
+                    Please check the file
+                </p>
+
+                <h2 class="elevator-content-6">Files</h2>
+                <p>点击下载：<a href="dload/BrainTouch_Lab_Demo MI-Based-BCI.rar">BrainTouch_Lab_Demo MI-Based-BCI.rar</a></p>
+
+            </div>
+        </div>
+    </div>
+    <!-- 正文模块 end -->
+
+
+    <!-- 底部模块 start -->
+    <div class="footer-bg" id="footer">
+        <div class="footer w">
+
+            <div class="left">
+                <h4>
+                    <div class="blue-strip"></div>
+                    商务合作
+                </h4>
+                <p>Copyright <span class="icon-span">&#xe902;</span> 2023 BrainUp.All rights reserved</p>
+            </div>
+
+            <div class="right">
+                <!--                <dl>-->
+                <!--                    <dt>技术合作</dt>-->
+                <!--                    <dd>罗先生</dd>-->
+                <!--                    <dd><span class="icon-span">&#xe945;</span> luojunwen@naolubrain.com</dd>-->
+                <!--                </dl>-->
+
+                <dl>
+                    <dt></dt>
+                    <dd>叶女士</dd>
+                    <dd><span class="icon-span">&#xe945;</span> yexiaochen@naolubrain.com</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="back_to_the_top">
+            <img src="images/lab/back_to_the_top.png" alt="">
+        </div>
+
+    </div>
+    <!-- 底部模块 end -->
+
+
+    <!-- 引入 js -->
+    <script src="js/lodash.min.js"></script>
+    <script src="js/flexible.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/instructions.js"></script>
+</body>
+</html>

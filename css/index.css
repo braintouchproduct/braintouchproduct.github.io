@@ -1,0 +1,91 @@
+/* BrainTouch 描边 logo */
+.product-logo img {
+    position: absolute;
+    /*left: 0.35546875rem;*/
+    right: 50%;
+    width: 0.625rem;
+    margin-right: 3.95rem;
+    /*transform: translate(-50%);*/
+}
+
+
+/* BrainTouch 产品系列 文字 */
+.product {
+    position: relative;
+    height: 3.87890625rem;
+}
+
+
+.product .left h4 {
+    position: relative;
+    float: left;
+    font-size: 0.1875rem;
+    font-weight: bold;
+    color: #010204;
+    margin-left: 0.10546875rem;
+    width: 1rem;
+    height: 0.38671875rem;
+}
+
+
+.product .left {
+    margin-top: 1.04296875rem;
+}
+
+
+.product .left {
+    float: left;
+}
+
+
+.product .middle,
+.product .right {
+    position: absolute;
+    top: 1.04296875rem;
+}
+
+
+.product .middle {
+    right: 2.08203125rem;
+}
+
+
+.product .right {
+    cursor: pointer;
+    right: 0;
+}
+
+
+/* BrainTouch Lab - 图片、 BrainTouch SDK - 图片 */
+.product .middle img,
+.product .right img {
+    display: block;
+    height: 1.09375rem;
+    padding: 0.11328125rem 0.15625rem 0.04296875rem;
+    border: 1px solid #ADADC6;
+    border-radius: 0.08203125rem;
+    /*vertical-align: top;*/
+}
+
+
+/* BrainTouch Lab - 文字、 BrainTouch SDK - 文字 */
+.product .middle h3,
+.product .right h3{
+    text-align: center;
+    font-size: 0.125rem;
+    /*vertical-align: bottom;*/
+    margin-top: 0.15625rem;
+}
+
+.product .middle p,
+.product .right p{
+    font-size: 0.09375rem;
+    text-align: center;
+    margin-top: 0.078125rem;
+}
+
+
+.product .right {
+    margin-left: 0.3125rem;
+}
+/* 产品部分 end */

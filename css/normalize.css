@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?do4sl2');
+    src:  url('../fonts/icomoon.eot?do4sl2#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?do4sl2') format('truetype'),
+    url('../fonts/icomoon.woff?do4sl2') format('woff'),
+    url('../fonts/icomoon.svg?do4sl2#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* 版心宽度不变 */
+.w {
+    /*min-width: 1560px;*/
+    width: 7.5rem;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 100%;
+    min-width: 9.8rem;
+    /*max-width: 10rem;*/
+    font-family: 'PingFangSC-Bold';
+}
+
+
+/* 所有 a 标签去掉下划线 */
+a {
+    text-decoration: none;
+}
+
+
+/* 所有 li 去掉小圆点 */
+li {
+    list-style-type: none;
+}
+
+
+img {
+    border: 0;  /* 照顾低版本浏览器 如果图片外面包含了链接会有边框的问题 */
+    vertical-align: bottom;  /* 取消图片底侧有空白缝隙的问题 */
+}
+
+
+.icon-span {
+    font-family: 'icomoon';
+}
+
+
+/* 清除浮动 */
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+
+.clearfix {
+    *zoom: 1
+}

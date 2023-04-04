@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>BrainTouch</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/product_hub.css">
+</head>
+
+
+<body>
+    <!-- 背景图 start -->
+    <div class="header-bg clearfix" id="header_bg">
+        <!-- header 部分 start -->
+        <div class="header-wrapper">
+            <div class="header w">
+                <!-- logo  -->
+                <div class="header-logo">
+                    <h1>
+                        <a href="index.html" title="">
+                            <img src="images/index/logo_header.png" alt="">
+                        </a>
+                    </h1>
+                </div>
+
+                <!-- 导航部分 start -->
+                <ul class="header-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="product-link">
+                        <a href="javascript:void(0);" class="active">产品</a>
+                        <ul class="second-nav">
+                            <li><a href="product_lab.html">BrainTouch Lab</a></li>
+                            <li><a href="product_sdk.html">BrainTouch SDK</a></li>
+                        </ul>
+                    </li>
+<!--                    <li><a href="industry_cases.html">行业案例</a></li>-->
+                    <li><a href="javascript:void(0);" class="contact-us">联系我们</a></li>
+                </ul>
+                <!-- 导航部分 end -->
+            </div>
+        </div>
+        <!-- header 部分 end -->
+    </div>
+    <!-- 背景图 end -->
+
+
+    <!-- 正文模块 start -->
+    <div class="container w clearfix">
+        <h4 class="clearfix">
+            <a href="product_lab.html" class="back-link">
+                <span>产品 &gt; BrainTouch Lab</span>
+            </a>
+        </h4>
+
+        <h1>Project Hub</h1>
+
+        <div class="img-div clearfix">
+
+            <div onclick="jump_page('ssvep_based_BCI.html')">
+                <img src="images/hub/img_01.jpg" alt="">
+                <h4>SSVEP-based BCI</h4>
+                <p>Matlab 开发示例应用</p>
+            </div>
+
+            <div onclick="jump_page('MI_based_BCI.html')">
+                <img src="images/hub/img_02.jpg" alt="">
+                <h4>MI-based BCI</h4>
+                <p>Python 开发示例应用</p>
+            </div>
+
+            <div onclick="jump_page('eye_closed_detection.html')">
+                <img src="images/hub/img_03.jpg" alt="">
+                <h4>闭眼测试</h4>
+                <p>ESP32 平台开发示例应用</p>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 正文模块 end -->
+
+
+    <!-- 底部模块 start -->
+    <div class="footer-bg" id="footer">
+        <div class="footer w">
+
+            <div class="left">
+                <h4>
+                    <div class="blue-strip"></div>
+                    商务合作
+                </h4>
+                <p>Copyright <span class="icon-span">&#xe902;</span> 2023 BrainUp.All rights reserved</p>
+            </div>
+
+            <div class="right">
+                <!--                <dl>-->
+                <!--                    <dt>技术合作</dt>-->
+                <!--                    <dd>罗先生</dd>-->
+                <!--                    <dd><span class="icon-span">&#xe945;</span> luojunwen@naolubrain.com</dd>-->
+                <!--                </dl>-->
+
+                <dl>
+                    <dt></dt>
+                    <dd>叶女士</dd>
+                    <dd><span class="icon-span">&#xe945;</span> yexiaochen@naolubrain.com</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="back_to_the_top">
+            <img src="images/lab/back_to_the_top.png" alt="">
+        </div>
+
+    </div>
+    <!-- 底部模块 end -->
+
+
+    <!-- 引入 js -->
+    <script src="js/flexible.js"></script>
+    <script src="js/common.js"></script>
+</body>
+</html>

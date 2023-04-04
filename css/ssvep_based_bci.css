@@ -1,0 +1,128 @@
+/* BrainTouch Lab 产品使用说明 */
+.header-bg {
+    background: #010204;
+}
+
+.container {
+    padding-top: 0.57421875rem;
+}
+
+.title h3 {
+    font-size: 0.1875rem;
+    font-weight: bold;
+    color: #010204;
+    /*padding-right: 2.0625rem;*/
+    text-align: center;
+    /*text-align: right;*/
+    margin-top: 0.21171875rem;
+}
+
+.main-content {
+    position: relative;
+    margin-top: 0.3125rem;
+}
+
+.main-content .left .nav {
+    position: fixed;
+    top: 1.2rem;
+    left: 1.25rem;
+    z-index: 100;
+}
+
+.main-content .left .nav ul li {
+    height: 0.1rem;
+    margin-bottom: 0.0390625rem;
+}
+
+.main-content .left .nav ul li a {
+    font-size: 0.07421875rem;
+    font-weight: 400;
+    color: #494952;
+    white-space: nowrap;
+    text-align: left;
+    padding: 0.02rem 0.05rem;
+    /*z-index: 100;*/
+}
+
+.main-content .left .nav .a-title {
+    font-size: 0.0859375rem;
+    font-weight: bold;
+    color: #010204;
+}
+
+.main-content .left .nav .a-text {
+    margin-left: 0.1rem;
+}
+
+.main-content .left .nav .active,
+.main-content .left .nav .a-text:hover {
+    background: #CCFF02;
+    border-radius: 0.0625rem;
+    font-weight: 700!important;
+}
+
+.main-content .left .vertical-logo {
+    position: absolute;
+    top: 2.55859375rem;
+    left: -0.13671875rem;
+    width: 0.62890625rem;
+    height: 3.94140625rem;
+}
+
+.main-content .left .vertical-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.main-content .right {
+    float: right;
+    width: 6.13671875rem;
+}
+
+/* 正文 */
+.main-text h2 {
+    font-size: 0.109375rem;
+    margin-top: 0.1953125rem;
+    margin-bottom: 0.0390625rem;
+}
+
+.main-text h4 {
+    font-size: 0.09375rem;
+    margin-bottom: 0.0390625rem;
+    margin-top: 0.0390625rem;
+}
+
+.main-text p {
+    font-size: 0.09375rem;
+    margin-bottom: 0.078125rem;
+    margin-top: 0.0390625rem;
+    line-height: 0.1640625rem;
+}
+
+.main-text img {
+    width: 4.59375rem;
+}
+
+.main-text .img-width500 {
+    display: block;
+    width: 500px;
+    margin-bottom: 0.078125rem;
+}
+
+.text-ident-1font-size {
+    padding-left: 0.1rem;
+}
+
+.text-ident-2font-size {
+    padding-left: 0.2rem;
+}
+
+.main-text a {
+    color: #005cc5;
+    text-decoration: underline;
+}
+
+
+
+

@@ -1,0 +1,495 @@
+/* BrainTouch Lab 产品使用说明 */
+.header-bg {
+    background: #010204;
+}
+
+.container {
+    padding-top: 0.57421875rem;
+}
+
+.title h3 {
+    font-size: 0.1875rem;
+    font-weight: bold;
+    color: #010204;
+    padding-right: 2.0625rem;
+    text-align: right;
+    margin-top: 0.21171875rem;
+}
+
+.main-content {
+    position: relative;
+    margin-top: 0.3125rem;
+}
+
+.main-content .left .nav {
+    position: fixed;
+    top: 1.2rem;
+    left: 1.25rem;
+    z-index: 100;
+}
+
+.main-content .left .nav ul li {
+    height: 0.1rem;
+    margin-bottom: 0.0390625rem;
+}
+
+.main-content .left .nav ul li a {
+    font-size: 0.07421875rem;
+    font-weight: 400;
+    color: #494952;
+    white-space: nowrap;
+    text-align: left;
+    padding: 0.02rem 0.05rem;
+    /*z-index: 100;*/
+}
+
+.main-content .left .nav .a-title {
+    font-size: 0.0859375rem;
+    font-weight: bold;
+    color: #010204;
+}
+
+.main-content .left .nav .a-text {
+    margin-left: 0.1rem;
+}
+
+.main-content .left .nav .active,
+.main-content .left .nav .a-text:hover {
+    background: #CCFF02;
+    border-radius: 0.0625rem;
+    font-weight: 700!important;
+}
+
+.main-content .left .vertical-logo {
+    position: absolute;
+    top: 2.55859375rem;
+    left: -0.13671875rem;
+    width: 0.62890625rem;
+    height: 3.94140625rem;
+}
+
+.main-content .left .vertical-logo img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.main-content .right {
+    float: right;
+    width: 6.13671875rem;
+}
+
+.main-content .right .content-title {
+    position: relative;
+    font-size: 0.125rem;
+    color: #010204;
+    font-weight: bold;
+    margin-bottom: 0.078125rem;
+    padding-left: 0.1171875rem;
+}
+
+.main-content .right h4 {
+    font-size: 0.09375rem;
+    font-weight: bold;
+    color: #010204;
+    margin: 0.10546875rem 0 0.10546875rem;
+}
+
+.main-content .right p {
+    /*
+        行间距 1.1 * 24 = 26.4px
+        font-size: 24px
+        line-height - font-size = 行间距(26.4)
+    */
+    font-size: 0.09375rem;
+    line-height: 0.1640625rem;
+    font-weight: 400;
+    color: #494952;
+}
+
+.main-content .product {
+    float: left;
+    width: 1.74609375rem;
+    height: 1.16015625rem;
+}
+
+.main-content .product img {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+
+.main-content .product,
+.main-content .instruction {
+    margin-top: 0.15625rem;
+}
+
+
+.main-content .instruction {
+    float: right;
+    width: 3.62109375rem;
+    height: 1.16015625rem;
+    border-radius: 0.08203125rem;
+}
+
+.main-content .instruction img {
+    display: block;
+    width: 100%;
+    /*height: 100%;*/
+}
+
+.main-content .right .h4-2 {
+    margin-top: 1.62890625rem;
+}
+
+.main-content .right .software {
+    position: relative;
+    margin-top: 0.15625rem;
+}
+
+.main-content .right .software img:nth-child(1) {
+    float: left;
+    width: 1.87890625rem;
+    height: 1.40625rem;
+    margin-right: 0.10546875rem;
+}
+
+.main-content .right .software img:nth-child(2) {
+    float: left;
+    width: 2.49609375rem;
+    height: 1.40625rem;
+}
+
+.main-content .right .software .search-download {
+    float: right;
+    width: 1.37890625rem;
+    height: 0.83203125rem;
+    border-radius: 0.0625rem;
+    margin-top: 0.57421875rem;
+}
+
+.main-content .right .project-hub {
+    position: relative;
+    width: 1.37890625rem;
+    height: 0.36328125rem;
+    border-radius: 0.0625rem;
+    border: 1px solid #ADADC6;
+    cursor: pointer;
+}
+
+.main-content .right .download-lab {
+    position: relative;
+    width: 1.37890625rem;
+    height: 0.36328125rem;
+    border-radius: 0.0625rem;
+    border: 1px solid #ADADC6;
+    cursor: pointer;
+    margin-bottom: 0.10546875rem;
+}
+
+.main-content .right .software .search-download div:hover {
+    background-color: #CCFF02;
+}
+
+.main-content .right .software .download-lab img,
+.main-content .right .software .search-download img {
+    width: 0.20703125rem;
+    height: 0.20703125rem;
+    margin: 0;
+}
+
+.main-content .right .software .search-download img:nth-of-type(1) {
+    position: absolute;
+    top: 0.078125rem;
+    left: 0.078125rem;
+}
+
+.main-content .right .software .search-download img:nth-of-type(2) {
+
+}
+
+.main-content .right .software .search-download p {
+    font-size: 0.07421875rem;
+    font-weight: 400;
+    color: #494952;
+}
+
+.main-content .right .software .search-download p:nth-of-type(1){
+    position: absolute;
+    left: 0.390625rem;
+    top: 0.203125rem;
+}
+
+.main-content .right .software .search-download h4 {
+    font-size: 0.09375rem;
+    font-weight: bold;
+    color: #010204;
+    margin: 0;
+}
+
+.main-content .right .software .search-download h4:nth-of-type(1) {
+    position: absolute;
+    top: 0.078125rem;
+    left: 0.39453125rem;
+}
+
+
+.small-step {
+    font-size: 0.09375rem;
+    font-weight: 400;
+    color: #494952;
+    margin-bottom: 0.078125rem;
+}
+
+
+.use-instruction-img-div {
+    width: 1.91796875rem;
+    height: 1.04296875rem;
+    margin: 0.15625rem 0 0.20703125rem;
+}
+
+.use-instruction-img-div img {
+    display: block;
+    /*min-width: 1.91796875rem;*/
+    width: 100%;
+    height: 100%;
+}
+
+.use-instruction-img-div-2 {
+    margin: 0.15625rem 0 0.20703125rem;
+
+}
+
+.use-instruction-img-div-2 img:nth-child(1),
+.use-instruction-img-div-2 img:nth-child(3) {
+    float: left;
+    display: block;
+    width: 1.875rem;
+    height: 1.40625rem;
+}
+
+.use-instruction-img-div-2 img:nth-child(2) {
+    float: left;
+    display: block;
+    width: 1.97265625rem;
+    height: 1.40625rem;
+}
+
+.use-instruction-img-div-2 img:nth-child(-n+2) {
+    margin-right: 0.10546875rem;
+}
+
+.use-instruction-img-div-3 {
+    margin: 0.15625rem 0 0.20703125rem;
+    width: 1.91796875rem;
+    height: 1.04296875rem;
+}
+
+.use-instruction-img-div-3 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.main-content .right .h4-3 {
+    margin-top: 0.3125rem!important;
+}
+
+.use-instruction-img-div-5,
+.use-instruction-img-div-4 {
+    margin: 0.15234375rem 0 0.20703125rem;
+}
+
+.use-instruction-img-div-4 img:nth-child(1) {
+    float: left;
+    display: block;
+    width: 1.703125rem;
+    height: 1.04296875rem;
+    margin-right: 0.10546875rem;
+}
+
+.use-instruction-img-div-4 img:nth-child(2) {
+    float: left;
+    display: block;
+    width: 1.40625rem;
+    height: 1.04296875rem;
+}
+
+.use-instruction-img-div-5 {
+    height: 1.04296875rem;
+}
+
+.use-instruction-img-div-5 img {
+    margin-right: 0.10546875rem;
+}
+
+.use-instruction-img-div-5 img:nth-child(1) {
+    display: block;
+    float: left;
+    width: 1.84765625rem;
+    height: 1.04296875rem;
+}
+
+.use-instruction-img-div-5 img:nth-child(2) {
+    display: block;
+    float: left;
+    /*width: 1.63671875rem;*/
+    max-height: 1.04296875rem;
+
+}
+
+.use-instruction-img-div-5 img:nth-child(3) {
+    display: block;
+    float: left;
+    width: 1.59375rem;
+    height: 1.04296875rem;
+}
+
+.use-instruction-img-div-6 {
+    margin: 0.15625rem 0 0.20703125rem;
+}
+
+.use-instruction-img-div-6 img:nth-child(1) {
+    display: block;
+    float: left;
+    width: 1.875rem;
+    height: 1.40625rem;
+    margin-right: 0.10546875rem;
+}
+
+.use-instruction-img-div-6 img:nth-child(2) {
+    display: block;
+    float: left;
+    width: 2.48828125rem;
+    height: 1.40625rem;
+}
+
+.use-instruction-img-div-7 {
+    margin: 0.15625rem 0 0.20703125rem;
+}
+
+.use-instruction-img-div-7 img {
+    margin-right: 0.10546875rem;
+}
+
+.use-instruction-img-div-7 img:nth-child(1) {
+    display: block;
+    float: left;
+    width: 1.671875rem;
+    height: 1.04296875rem;
+}
+
+.use-instruction-img-div-7 img:nth-child(2),
+.use-instruction-img-div-7 img:nth-child(3) {
+    display: block;
+    float: left;
+    width: 1.72265625rem;
+    height: 1.04296875rem;
+}
+
+.use-instruction-img-div-8 {
+    margin: 0.15625rem 0 0.20703125rem;
+}
+
+.use-instruction-img-div-8 img {
+    display: block;
+    float: left;
+    width: 0.78125rem;
+    height: 0.78125rem;
+    margin-right: 0.10546875rem;
+}
+
+.use-instruction-img-div-9 {
+    margin: 0.15625rem 0 0.20703125rem;
+}
+
+.use-instruction-img-div-9 img {
+    display: block;
+    float: left;
+    height: 1.40625rem;
+    margin-right: 0.10546875rem;
+}
+
+.use-instruction-img-div-10 {
+    margin: 0.15625rem 0 0.20703125rem;
+}
+
+.use-instruction-img-div-10 img {
+    display: block;
+    float: left;
+    width: 1.875rem;
+    height: 1.40625rem;
+    margin-right: 0.10546875rem;
+}
+
+.project-hub-2 {
+    position: relative;
+    width: 1.37890625rem;
+    height: 0.36328125rem;
+    border-radius: 0.0625rem;
+    margin-bottom: 0.10546875rem;
+    border: 1px solid #ADADC6;
+    cursor: pointer;
+}
+
+.project-hub-2 img {
+    position: absolute;
+    top: 0.078125rem;
+    left: 0.10546875rem;
+    width: 0.20703125rem;
+    height: 0.20703125rem;
+}
+
+.main-content .right .project-hub-2 h4 {
+    position: absolute;
+    display: block;
+    top: 0.0703125rem;
+    left: 0.39453125rem;
+    margin: 0;
+    font-size: 0.09375rem;
+}
+
+.main-content .right .project-hub-2 p {
+    position: absolute;
+    display: block;
+    top: 0.203125rem;
+    left: 0.390625rem;
+    margin: 0;
+    font-size: 0.07421875rem;
+}
+
+.main-content .right .project-hub-2:hover {
+    background-color: #CCFF02;
+}
+
+
+.main-content .right .project-hub-2 {
+    margin: 0.15625rem 0 0.83203125rem;
+}
+
+.main-content .right video {
+    width: 3.2rem;
+    margin-bottom: 0.1171875rem;
+}
+
+.main-content .right h3 {
+    margin-top: 0.3125rem;
+}
+
+
+
+.h3-margin-top-30px {
+    margin-top: 0.1171875rem !important;
+    font-size: 0.09375rem;
+}
+
+.h3-margin-top-20px {
+    margin-top: 0.078125rem !important;
+    font-size: 0.09375rem;
+}
+
+.h3-margin-top-10px {
+    margin-top: 0.0390625rem !important;
+
+}

@@ -1,0 +1,4 @@
+##ignore this file and directory##
+.git
+.idea
+*.bat

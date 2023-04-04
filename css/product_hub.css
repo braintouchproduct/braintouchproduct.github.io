@@ -1,0 +1,35 @@
+.container {
+    padding-top: 0.57421875rem;
+}
+
+.container h1 {
+    font-size: 0.1875rem;
+    margin-top: 0.3125rem;
+    margin-bottom: 0.1953125rem;
+}
+
+.container .img-div {
+    margin-bottom: 0.078125rem;
+}
+
+.container .img-div div {
+    float: left;
+    text-align: center;
+    margin-right: 0.078125rem;
+    cursor: pointer;
+}
+
+.container .img-div img {
+    display: inline-block;
+    width: 2.34375rem;
+}
+
+.container .img-div h4 {
+    font-size: 0.1rem;
+    margin: 0.0390625rem 0 0.0390625rem;
+}
+
+.container .img-div p {
+    font-size: 0.0725rem;
+}
+

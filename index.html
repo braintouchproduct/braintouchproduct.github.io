@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>BrainTouch</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/banner.css">
+
+</head>
+
+
+<body>
+    <!-- 背景图 start -->
+    <div class="header-bg" id="header_bg">
+        <!-- header 部分 start -->
+        <div class="header w">
+
+            <!-- logo  -->
+            <div class="header-logo">
+                <h1>
+                    <a href="index.html" title="">
+                        <img src="images/index/logo_header.png" alt="">
+                    </a>
+                </h1>
+            </div>
+
+            <!-- 导航部分 start -->
+            <ul class="header-nav">
+                <li><a href="index.html" class="active">首页</a></li>
+                <li class="product-link">
+                    <a href="javascript:void(0);">产品</a>
+                    <ul class="second-nav">
+                        <li><a href="product_lab.html">BrainTouch Lab</a></li>
+                        <li><a href="product_sdk.html">BrainTouch SDK</a></li>
+                    </ul>
+                </li>
+<!--                <li><a href="industry_cases.html">行业案例</a></li>-->
+                <li><a href="javascript:void(0);" class="contact-us">联系我们</a></li>
+            </ul>
+            <!-- 导航部分 end -->
+        </div>
+        <!-- header 部分 end -->
+
+        <!-- banner 部分 start -->
+        <div class="banner w">
+            <div class="left">
+                <img src="images/index/banner_logo.png" alt="">
+                <p>基于视觉脑电范式, 面向下一代 XR 交互的脑控交互技术，提供一种解放双手的自然交互形式 , <br>
+                   以开发者套件的形式赋能 XR 开发社群；同时将硬件和数据接口开放给视觉方向脑电研究/交<br>互研究人群，降低视觉脑机接口交互研究门槛。</p>
+                <button class="purchase-consultation">购买咨询</button>
+            </div>
+            <div class="right">
+                <img src="images/index/banner_braintouch.png" alt="">
+            </div>
+        </div>
+        <!-- banner 部分 end -->
+    </div>
+    <!-- 背景图 end -->
+
+
+    <!-- 产品系列 正文 start -->
+    <div class="product w clearfix">
+        <!-- BrainTouch 描边 start -->
+        <div class="product-logo">
+            <img src="images/index/logo_vertical.png" alt="">
+        </div>
+        <!-- BrainTouch 描边 end -->
+
+        <div class="left">
+            <h4>
+                <div class="blue-strip"></div>
+                BrainTouch<br>
+                产品系列
+            </h4>
+        </div>
+
+        <div class="right" onclick="jump_page('product_sdk.html')">
+            <img src="images/index/braintouch_sdk.png" alt="">
+            <h3>BrainTouch SDK</h3>
+            <p>集成视觉注意力交互技术的开发者套件<br>适用于 XR 脑机交互开发场景</p>
+        </div>
+
+        <div class="middle">
+            <a href="product_lab.html">
+                <img src="images/index/braintouch_lab.png" alt="">
+                <h3>BrainTouch Lab</h3>
+                <p>开放原始数据接口, 适用于基于视觉的<br> HCI/BCI/AI 研究及实验场景</p>
+            </a>
+        </div>
+
+    </div>
+    <!-- 产品系列 正文 end -->
+
+
+    <!-- 底部模块 start -->
+    <div class="footer-bg" id="footer">
+        <div class="footer w">
+
+            <div class="left">
+                <h4>
+                    <div class="blue-strip"></div>
+                    商务合作
+                </h4>
+                <p>Copyright <span class="icon-span">&#xe902;</span> 2023 BrainUp.All rights reserved</p>
+            </div>
+
+            <div class="right">
+<!--                <dl>-->
+<!--                    <dt>技术合作</dt>-->
+<!--                    <dd>罗先生</dd>-->
+<!--                    <dd><span class="icon-span">&#xe945;</span> luojunwen@naolubrain.com</dd>-->
+<!--                </dl>-->
+
+                <dl>
+                    <dt></dt>
+                    <dd>叶女士</dd>
+                    <dd><span class="icon-span">&#xe945;</span> yexiaochen@naolubrain.com</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="back_to_the_top">
+            <img src="images/lab/back_to_the_top.png" alt="">
+        </div>
+
+    </div>
+    <!-- 底部模块 end -->
+
+
+    <!-- 遮罩层 div -->
+    <div class="mask">
+        <div class="purchase-info">
+            <img src="images/index/close_icon@2x.png" alt="" class="close-icon">
+            <h3>购买咨询</h3>
+
+            <h4 class="name">公司/机构名称</h4>
+            <input type="text" name="unit" placeholder="请输入内容">
+            <span></span>
+
+            <h4>联系方式</h4>
+            <input type="text" name="contact" placeholder="请输入内容">
+            <span></span>
+
+            <h4>采购数量</h4>
+            <input type="number" name="purchase" min="1" value="1">
+            <span></span>
+
+<!--            <p>请您填写相关信息，我们将于 24 小时内联系您</p>-->
+            <button id="submit">提 交</button>
+        </div>
+    </div>
+
+
+    <!-- 引入 js -->
+    <script src="js/flexible.js"></script>
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/common.js">
+
+    </script>
+</body>
+</html>

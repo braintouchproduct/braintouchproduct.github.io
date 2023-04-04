@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>BrainTouch</title>
+
+<!--    <link rel="stylesheet" href="css/html_fontsize.css">-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/eye_closed_detection.css">
+</head>
+
+
+<body>
+    <!-- 背景图 start -->
+    <div class="header-bg" id="header_bg">
+        <!-- header 部分 start -->
+        <div class="header-wrapper">
+            <div class="header w">
+                <!-- logo  -->
+                <div class="header-logo">
+                    <h1>
+                        <a href="index.html" title="">
+                            <img src="images/index/logo_header.png" alt="">
+                        </a>
+                    </h1>
+                </div>
+
+                <!-- 导航部分 start -->
+                <ul class="header-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li class="product-link">
+                        <a href="javascript:void(0);" class="active">产品</a>
+                        <ul class="second-nav">
+                            <li><a href="product_lab.html">BrainTouch Lab</a></li>
+                            <li><a href="product_sdk.html">BrainTouch SDK</a></li>
+                        </ul>
+                    </li>
+<!--                    <li><a href="industry_cases.html">行业案例</a></li>-->
+                    <li><a href="javascript:void(0);" class="contact-us">联系我们</a></li>
+                </ul>
+                <!-- 导航部分 end -->
+            </div>
+        </div>
+        <!-- header 部分 end -->
+    </div>
+    <!-- 背景图 end -->
+
+
+    <!-- 正文模块 start -->
+    <div class="container w clearfix">
+        <h4 class="clearfix">
+            <a href="product_hub.html" class="back-link">
+                <span>产品 &gt; Project Hub</span>
+            </a>
+        </h4>
+
+
+        <div class="title">
+            <h3>BrainTouch Lab Demo: 闭眼检测</h3>
+        </div>
+
+
+        <div class="main-content clearfix">
+            <!-- 正文左侧部分 -->
+            <div class="left clearfix">
+                <div class="nav">
+                    <ul id="nav-ul" class="clearfix">
+                        <li><a data-id='1' class="a-title elevator-1 active">简介</a></li>
+                        <li><a data-id='2' class="a-title elevator-2">硬件准备</a></li>
+                        <li><a data-id='3' class="a-title elevator-3">项目描述</a></li>
+                        <li><a data-id='5' class="a-text elevator-5">ESP32-S3-DevKitC-1 开发板</a></li>
+                        <li><a data-id='6' class="a-title elevator-6">代码详解</a></li>
+                        <li><a data-id='7' class="a-text elevator-7">WIFI 连接</a></li>
+                        <li><a data-id='8' class="a-text elevator-8">socket 连接及 eeg 数据接收</a></li>
+                        <li><a data-id='9' class="a-text elevator-9">数据处理</a></li>
+                        <li><a data-id='10' class="a-text elevator-10">RGB 显示结果</a></li>
+                        <li><a data-id='11' class="a-title elevator-11">工程文件下载</a></li>
+                    </ul>
+                </div>
+
+                <div class="vertical-logo">
+                    <img src="images/lab_instr/vertical-logo@2x.png" alt="">
+                </div>
+
+            </div>
+
+            <!-- 正文右侧部分 -->
+            <div class="right main-text clearfix">
+                <h2 class="elevator-content-1">简介</h2>
+                <p>
+                    本 Demo 使用一个简单的算法，通过 eeg 判断人是否闭眼；展示了 Braintouch 与嵌入式设备协同工作的能力
+                </p>
+
+                <img src="images/eye_closed_det/eyes_closed_demo.gif" alt="">
+
+                <h2 class="elevator-content-2">硬件准备</h2>
+                <ul class="ul-list-style-circle ul-ident-2-fontsize">
+                    <li>Braintouch 1 台</li>
+                    <li>ESP32-S3-DevKitC-1 开发板 1 台</li>
+                    <li>USB2.0 数据线(标准 A 型转 Micro-B 型)</li>
+                </ul>
+
+                <h2 class="elevator-content-3">项目描述</h2>
+
+                <h4 class="elevator-content-5">认识 ESP32-S3-DevKitC-1 开发板</h4>
+                
+                <img src="images/eye_closed_det/img_01.png" alt="">
+
+                <img src="images/eye_closed_det/img_02.png" alt="">
+
+                <p>
+                    ESP32-S3-DevKitC-1 开发板是基于 esp32s3 系列 SOC 打造的开发板;<br>
+                    本项目将使用其有限的资源和功能，如 WiFi, RGB;需要的物料和操作步骤比较简单:
+                </p>
+                <ul class="ul-list-style-circle ul-ident-2-fontsize">
+                    <li>用 USB2.0 数据线，连接电脑和开发板，提供程序下载</li>
+                    <li>通过 WiFi 连接, Braintouch Demo 展示软件</li>
+                </ul>
+
+                <h2 class="elevator-content-6">代码详解</h2>
+                <p class="without-margin-bottom">所需 Middleware 如下: </p>
+                <ul class="ul-list-style-circle ul-ident-2-fontsize">
+                    <li>lwIP: 轻量级 TCP/IP 协议, 提供 socket 支持</li>
+                    <li>WiFi: 连接局域网</li>
+                    <li>Lep strip: 为 WS2812 提供驱动</li>
+                </ul>
+                <p>基于 ESP32S3 的嵌入式代码工程文件较多, 以下将对部分代码进行分析:</p>
+
+                <h4 class="elevator-content-7">WiFi 连接</h4>
+                <p>
+                    函数调用顺序: app_main() =&gt; example_connect() =&gt; start() =&gt; wifi_start()<br>
+                    在 wifi_start() 中完成对 wifi 的配置和开启
+                </p>
+
+                <pre class="code-background">
+static esp_netif_t *wifi_start(void)
+{
+    ...省略
+    //wifi配置
+    wifi_config_t wifi_config = {
+        .sta = {
+            .ssid = CONFIG_EXAMPLE_WIFI_SSID,
+            .password = CONFIG_EXAMPLE_WIFI_PASSWORD,
+            .scan_method = EXAMPLE_WIFI_SCAN_METHOD,
+            .sort_method = EXAMPLE_WIFI_CONNECT_AP_SORT_METHOD,
+            .threshold.rssi = CONFIG_EXAMPLE_WIFI_SCAN_RSSI_THRESHOLD,
+            .threshold.authmode = EXAMPLE_WIFI_SCAN_AUTH_MODE_THRESHOLD,
+        },
+    };
+    ESP_LOGI(TAG, "Connecting to %s...", wifi_config.sta.ssid);
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    ESP_ERROR_CHECK(esp_wifi_start());
+    esp_wifi_connect();
+    return netif;
+}</pre>
+
+                <h4 class="elevator-content-8">socket 连接及 eeg 数据接收</h4>
+
+                <p>
+                    初始化： esp_netif_init() <br>
+                    连接在任务 tcp_client_task 完成
+                </p>
+
+                <pre class="code-background">
+static void tcp_client_task(void *pvParameters)
+{
+    ...
+    struct sockaddr_in dest_addr;
+    dest_addr.sin_addr.s_addr = inet_addr(host_ip);
+    dest_addr.sin_family = AF_INET;
+    dest_addr.sin_port = htons(PORT);
+    addr_family = AF_INET;
+    ip_protocol = IPPROTO_IP;
+    ...
+    while(1)
+    {
+         sock =  socket(addr_family, SOCK_STREAM, ip_protocol);
+         ...
+         int err = connect(sock, (struct sockaddr *)&dest_addr, sizeof(struct sockaddr_in6));
+         ...
+         //每2s尝试一次连接，直到连接成功，退出while(1)
+    }
+    int err = send(sock, socket_cmd_config, strlen(socket_cmd_config), 0);
+    //接收config data，并保存
+    ...
+    while (1)
+    {
+        int len = recv(sock, rx_buffer, 512, 0);
+        //接收512个字节数据并进行处理
+    }
+}</pre>
+                <h4 class="elevator-content-9">数据处理</h4>
+                <pre class="code-background">
+void process_task(void)
+{
+    while(1)
+    {
+        ...
+        eeg_queue_poll(&eeg_data[i], eeg_buffer);
+        float *fft = fft_operate(eeg_buffer, 1024);
+        // 接收数据，并对 5s 数据进行 fft
+        // 5s 接收 250 * 5 = 1250个数据，但是这里 fft 只能处理 2 的指数个数据，所以取 1024
+        uint32_t frq_15 = 15*1024/125 + 1;
+        uint32_t frq_20 = 20*1024/125 + 1;
+        uint32_t frq_8 = 8*1024/125 + 1;
+        uint32_t frq_13 = 13*1024/125 + 1;
+        for(int j=frq_8; j<frq_13; j++)
+            alpha = alpha + fft[j];
+        for(int j=frq_15; j<frq_20; j++)
+            base = base + fft[j];
+        // alpha = 8~13Hz fft
+        // base = 15~20Hz fft
+        if(alpha/base>1.35)
+            result[i] = 1;
+        else
+            result[i] = 0;
+        ...
+        // 算法结果反馈
+        xQueueSend(led_state_queue, &work_state, 10);
+    }
+}</pre>
+                <h4 class="elevator-content-10">RGB 显示结果</h4>
+
+                <p>
+                    驱动基于 WS2812 的 RGB led 灯反馈算法结果<br>
+                    闭眼：白色灯亮<br>
+                    睁眼：灭灯
+                </p>
+
+                <pre class="code-background">
+void led_task(void)
+{
+    //接收算法反馈结果
+    if(!xQueueReceive(led_state_queue, &work_state, 0))
+    ...
+    //状态机，led显示
+    switch(work_state)
+    {
+        ...
+    }
+}</pre>
+                <h2 class="elevator-content-11">工程文件下载</h2>
+                <h4>使用步骤：</h4>
+                <p class="without-margin-bottom">
+                    step1: 为 ESP32-S3-DevKitC-1 开发板烧录程序
+                </p>
+
+                <ul class="ul-list-style-circle ul-ident-2-fontsize">
+                    <li>安装 ESP-IDF</li>
+                    <li>进入工程目录，运行 idf.py build，进行工程编译</li>
+                    <li>用 usb 线连接开发板和上位机, 使用指令 idf.py -p COMx flash, 烧录程序</li>
+                </ul>
+
+                <p class="without-margin-bottom">
+                    step2: 开启 BraintouchLib, 通过 WiFi 将开发板与其连接
+                </p>
+
+                <ul class="ul-list-style-circle ul-ident-2-fontsize">
+                    <li>使用 idf.py menuconfig, 设置 wifi 名称及密码，设置需连接 ip 和 port</li>
+                </ul>
+
+                <img src="images/eye_closed_det/img_03.png" alt="">
+                <img src="images/eye_closed_det/img_04.png" alt="">
+                <img src="images/eye_closed_det/img_05.png" alt="">
+
+                <p>更改以上设置后, 需重新编译和烧录</p>
+
+                <p class="without-margin-bottom">
+                    step3: 佩戴 Braintouch 设备, 并通过通道检测<br>
+                    step4: 开启开发板, 并连接到 Braintouch Lab
+                </p>
+
+                <ul class="ul-list-style-circle ul-ident-2-fontsize">
+                    <li>可以使用 idf.py -p COMx monitor命令, 进行 com 口打印调试信息</li>
+                    <li>开始使用 Demo 进行闭眼检测</li>
+                </ul>
+                
+                <p class="margin-top-30">点击下载文件: <a href="dload/Braintouch_demo_socket.zip">Braintouch_demo_socket.zip</a></p>
+                
+            </div>
+        </div>
+    </div>
+    <!-- 正文模块 end -->
+
+
+    <!-- 底部模块 start -->
+    <div class="footer-bg" id="footer">
+        <div class="footer w">
+
+            <div class="left">
+                <h4>
+                    <div class="blue-strip"></div>
+                    商务合作
+                </h4>
+                <p>Copyright <span class="icon-span">&#xe902;</span> 2023 BrainUp.All rights reserved</p>
+            </div>
+
+            <div class="right">
+                <!--                <dl>-->
+                <!--                    <dt>技术合作</dt>-->
+                <!--                    <dd>罗先生</dd>-->
+                <!--                    <dd><span class="icon-span">&#xe945;</span> luojunwen@naolubrain.com</dd>-->
+                <!--                </dl>-->
+
+                <dl>
+                    <dt></dt>
+                    <dd>叶女士</dd>
+                    <dd><span class="icon-span">&#xe945;</span> yexiaochen@naolubrain.com</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="back_to_the_top">
+            <img src="images/lab/back_to_the_top.png" alt="">
+        </div>
+
+    </div>
+    <!-- 底部模块 end -->
+
+
+    <!-- 引入 js -->
+    <script src="js/lodash.min.js"></script>
+    <script src="js/flexible.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/instructions.js"></script>
+</body>
+</html>

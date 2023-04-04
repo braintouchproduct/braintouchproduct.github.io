@@ -99,10 +99,9 @@ function jump_page(url) {
         }
 
 
-
         if(isValid) {
             // 验证成功 - 发送 ajax 请求
-            $.ajax({
+/*            $.ajax({
                 type: 'post',
                 url: 'http://39.107.40.115:9000/api/purchase',
                 contentType: 'application/json',
@@ -124,7 +123,24 @@ function jump_page(url) {
                         alert(response.msg)
                     }
                 }
-            })
+            })*/
+
+            // https 2 http
+            let unit = unitInput.value.trim()
+            let contact = contactStr
+            let purchase = purchaseInput.value.trim()
+
+            try {
+                const img = new Image()
+                img.src = `http://39.107.40.115:9000/api/purchase?unit=${unit}&contact=${contact}&purchase${purchase}`
+                alert(`submitted successfully, We will contact you within 2 working days`)
+                document.querySelector('.mask').style= 'none'
+            } catch (error) {
+                alert('failed')
+                return
+            } finally {
+
+            }
         }
     })
 

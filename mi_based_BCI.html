@@ -67,8 +67,8 @@
             <div class="left clearfix">
                 <div class="nav">
                     <ul id="nav-ul" class="clearfix">
-                        <li><a data-id='1' class="a-title elevator-1 active">Contents</a></li>
-                        <li><a data-id='2' class="a-text elevator-2">Intro</a></li>
+                        <li><a data-id='1' class="a-title elevator-1 active">简介</a></li>
+<!--                        <li><a data-id='2' class="a-text elevator-2">Intro</a></li>-->
                         <li><a data-id='3' class="a-title elevator-3">Dependency</a></li>
                         <li><a data-id='4' class="a-title elevator-4">Description</a></li>
                         <li><a data-id='5' class="a-title elevator-5">Code</a></li>
@@ -84,33 +84,35 @@
 
             <!-- 正文右侧部分 -->
             <div class="right main-text clearfix">
-                <h2 class="elevator-content-1">Contents</h2>
-                <h2 class="elevator-content-2">Intro</h2>
+                <h2 class="elevator-content-1">简介</h2>
+<!--                <h2 class="elevator-content-2"></h2>-->
                 <p>
-                    This project is a prime example of using BrainTouch and Python to build an EEG focus and intention recognition system. The aim is to demonstrate how to quickly and effectively structure an EEG-BCI framework using the BrainTouch device.
-                    EEG bandpower will serve as the indicator of intention level, as high rhythm power increases when someone focuses their mind on imagining or intending to do something. Additionally, ERD/ERS may be a better way to achieve this goal. We use PyQt5 as the presentation, you can easily replace it with your stimulation.
+                    这个项目是使用 BrainTouch 和 Python 建立一个 EEG 注意力和意图识别系统的典型案例。其目的是展示如何使用 BrainTouch 设备快速有效地构建一个 EEG-BCI 框架。
+                    根据神经生理学我们知道当人们将注意力集中在想象或意图做某事时，脑电中高频成分的功率会增加，因此，这里将脑电节律波动作为检测指标。当然, ERD/ERS 可能是实现这一检测的更好方法，使用者可以自行根据需要将 "alg_fun" 类替换为自己理想的模型
+                    此示例中使用 PyQt5 作为演示呈现框架，使用者也可以很容易地用其他呈现框架来代替它，比如使用简单的 Matplotlib 作为反馈呈现
                 </p>
 
                 <img src="images/mi_based_bci/mi_based_demo.gif" alt="">
                 
-                <h2 class="elevator-content-3">Dependency</h2>
+                <h2 class="elevator-content-3">依赖</h2>
                 <ul class="ul-need-list-style ul-ident-1-fontsize">
                     <li>Python 3.6+</li>
                     <li>BrainTouch & BrainTouch lab SDK</li>
                     <li>PyQt5</li>
                 </ul>
 
-                <h2 class="elevator-content-4">Description</h2>
+                <h2 class="elevator-content-4">说明</h2>
                 <p>
-                    There are two .py files in this project. BrainTouch_socket.py is the standard implementation of the BrainTouch data stream. We use the class BrainTouch_socket.DataStream to get real-time EEG raw data in the BrainTouch_Demo, which includes preprocessing of the EEG raw data and presentation of paradigms. As an interactive sample, we have a Pool game where participants are supposed to focus on imagining hitting the white ball. The program will detect changes in the bandpower of their EEG signal as well as their neural activation. Then, it switches to the successfully hit screen.
+                    本示例中的两个 .py 文件。BrainTouch_socket.py 是 BrainTouch 数据流的标准实现。我们使用其中的 BrainTouch_socket.DataStream 类来在 BrainTouch_Demo.py 中获取实时 EEG 数据，BrainTouch_Demo 中包括 EEG 原始数据的预处理和范式的呈现
+                    作为一个互动范例，我们呈现了一个台球游戏界面，作为参与者的引导。参与者应当集中精力想象击打白球，程序将检测他们脑电节律的变化。并在识别到高频成分显著增加后，切换到成功击球的界面。
                 </p>
 
-                <h2 class="elevator-content-5">Code</h2>
+                <h2 class="elevator-content-5">代码</h2>
                 <p>
-                    Please check the file
+                    请查看该文件
                 </p>
 
-                <h2 class="elevator-content-6">Files</h2>
+                <h2 class="elevator-content-6">文件</h2>
                 <p>点击下载：<a href="dload/BrainTouch_Lab_Demo MI-Based-BCI.rar">BrainTouch_Lab_Demo MI-Based-BCI.rar</a></p>
 
             </div>

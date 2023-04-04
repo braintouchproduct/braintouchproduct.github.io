@@ -289,7 +289,7 @@ a {
     display: none;
     top: 0.1875rem;
     left: 0;
-    width: 0.8rem;
+    width: 0.88rem;
     background-color: black;
     border-radius: 0 0 0.0625rem 0.0625rem;
     z-index: 300;
@@ -314,7 +314,8 @@ a {
     padding: 0 0.08rem;
     /*border-radius: 0 0 0.0625rem 0.0625rem;*/
     border-radius: 0;
-    width: 0.8rem;
+    width: 0.9rem;
+    text-align: center;
 }
 
 .second-nav li:nth-child(2) a {
@@ -484,4 +485,13 @@ a {
     margin-right: 0.1rem;
     top: 0.0234375rem;
     left: 0;
+}
+
+
+/* 说明文档侧导航 */
+.main-content .left .nav {
+    position: fixed;
+    top: 1.2rem;
+    left: 1rem;
+    z-index: 100;
 }

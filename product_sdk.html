@@ -205,41 +205,41 @@
     <script src="js/product.js"></script>
     <script src="js/product_sdk.js"></script>
     <!-- Swiper JS -->
-    <script src="js/swiper.min.js"></script>
+<!--    <script src="js/swiper.min.js"></script>-->
 
     <!-- Initialize Swiper -->
-    <script>
-        let swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1.6,
-            spaceBetween: 30,
-            centeredSlides: true,
-            loop: true,
-            // 左右箭头(上一张、下一张)
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            // 小圆点
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            // 自动播放
-            autoplay: {
-                delay: 4 * 1000,  // 轮播图的间隔(毫秒)
-                disableOnInteraction: false,  // 操作轮播图后, 希望在结束操作后, 继续自动播放轮播图
-            }
-        });
+<!--    <script>-->
+<!--        let swiper = new Swiper('.swiper-container', {-->
+<!--            slidesPerView: 1.6,-->
+<!--            spaceBetween: 30,-->
+<!--            centeredSlides: true,-->
+<!--            loop: true,-->
+<!--            // 左右箭头(上一张、下一张)-->
+<!--            navigation: {-->
+<!--                nextEl: ".swiper-button-next",-->
+<!--                prevEl: ".swiper-button-prev"-->
+<!--            },-->
+<!--            // 小圆点-->
+<!--            pagination: {-->
+<!--                el: '.swiper-pagination',-->
+<!--                clickable: true-->
+<!--            },-->
+<!--            // 自动播放-->
+<!--            autoplay: {-->
+<!--                delay: 4 * 1000,  // 轮播图的间隔(毫秒)-->
+<!--                disableOnInteraction: false,  // 操作轮播图后, 希望在结束操作后, 继续自动播放轮播图-->
+<!--            }-->
+<!--        });-->
 
-        // 鼠标悬停时, 暂停轮播
-        swiper.el.onmouseover = function(){
-            swiper.autoplay.stop();
-        }
+<!--        // 鼠标悬停时, 暂停轮播-->
+<!--        swiper.el.onmouseover = function(){-->
+<!--            swiper.autoplay.stop();-->
+<!--        }-->
 
-        // 鼠标离开时, 继续播放
-        swiper.el.onmouseleave = function(){
-            swiper.autoplay.start();
-        }
-    </script>
+<!--        // 鼠标离开时, 继续播放-->
+<!--        swiper.el.onmouseleave = function(){-->
+<!--            swiper.autoplay.start();-->
+<!--        }-->
+<!--    </script>-->
 </body>
 </html>

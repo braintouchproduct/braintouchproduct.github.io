@@ -102,7 +102,7 @@
 
             try {
                 const img = new Image()
-                img.src = `http://39.107.40.115:9000/api/purchase?unit=${unit}&contact=${contact}&purchase${purchase}`
+                img.src = `http://39.107.40.115:9000/api/purchase?unit=${unit}&contact=${contact}&purchase=${purchase}`
                 alert(`submitted successfully, We will contact you within 2 working days`)
                 document.querySelector('.mask').style= 'none'
             } catch (error) {

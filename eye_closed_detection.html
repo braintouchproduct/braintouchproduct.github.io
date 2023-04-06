@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/eye_closed_detection.css">
+
+    <link rel="stylesheet" href="assets/css/prism/prism-okaidia.min.css">
+
 </head>
 
 
@@ -105,7 +108,7 @@
                 <h2 class="elevator-content-3">项目描述</h2>
 
                 <h4 class="elevator-content-5">认识 ESP32-S3-DevKitC-1 开发板</h4>
-                
+
                 <img src="images/eye_closed_det/img_01.png" alt="">
 
                 <img src="images/eye_closed_det/img_02.png" alt="">
@@ -134,8 +137,7 @@
                     在 wifi_start() 中完成对 wifi 的配置和开启
                 </p>
 
-                <pre class="code-background">
-static esp_netif_t *wifi_start(void)
+                <pre><code class="language-matlab code-fontsize">static esp_netif_t *wifi_start(void)
 {
     ...省略
     //wifi配置
@@ -155,7 +157,7 @@ static esp_netif_t *wifi_start(void)
     ESP_ERROR_CHECK(esp_wifi_start());
     esp_wifi_connect();
     return netif;
-}</pre>
+}</code></pre>
 
                 <h4 class="elevator-content-8">socket 连接及 eeg 数据接收</h4>
 
@@ -164,8 +166,7 @@ static esp_netif_t *wifi_start(void)
                     连接在任务 tcp_client_task 完成
                 </p>
 
-                <pre class="code-background">
-static void tcp_client_task(void *pvParameters)
+                <pre><code class="language-matlab code-fontsize">static void tcp_client_task(void *pvParameters)
 {
     ...
     struct sockaddr_in dest_addr;
@@ -191,10 +192,9 @@ static void tcp_client_task(void *pvParameters)
         int len = recv(sock, rx_buffer, 512, 0);
         //接收512个字节数据并进行处理
     }
-}</pre>
+}</code></pre>
                 <h4 class="elevator-content-9">数据处理</h4>
-                <pre class="code-background">
-void process_task(void)
+<pre class="code-background"><code class="language-matlab code-fontsize">void process_task(void)
 {
     while(1)
     {
@@ -221,7 +221,7 @@ void process_task(void)
         // 算法结果反馈
         xQueueSend(led_state_queue, &work_state, 10);
     }
-}</pre>
+}</code></pre>
                 <h4 class="elevator-content-10">RGB 显示结果</h4>
 
                 <p>
@@ -230,8 +230,7 @@ void process_task(void)
                     睁眼：灭灯
                 </p>
 
-                <pre class="code-background">
-void led_task(void)
+                <pre class="code-background"><code class="language-matlab code-fontsize">void led_task(void)
 {
     //接收算法反馈结果
     if(!xQueueReceive(led_state_queue, &work_state, 0))
@@ -241,7 +240,7 @@ void led_task(void)
     {
         ...
     }
-}</pre>
+}</code></pre>
                 <h2 class="elevator-content-11">工程文件下载</h2>
                 <h4>使用步骤：</h4>
                 <p class="without-margin-bottom">
@@ -277,9 +276,9 @@ void led_task(void)
                     <li>可以使用 idf.py -p COMx monitor命令, 进行 com 口打印调试信息</li>
                     <li>开始使用 Demo 进行闭眼检测</li>
                 </ul>
-                
+
                 <p class="margin-top-30">点击下载文件: <a href="dload/Braintouch_demo_socket.zip">Braintouch_demo_socket.zip</a></p>
-                
+
             </div>
         </div>
     </div>
@@ -326,5 +325,8 @@ void led_task(void)
     <script src="js/flexible.js"></script>
     <script src="js/common.js"></script>
     <script src="js/instructions.js"></script>
+
+    <script src="assets/js/prism/prism.js"></script>
+    <script src="assets/js/prism/prism-matlab.min.js"></script>
 </body>
 </html>

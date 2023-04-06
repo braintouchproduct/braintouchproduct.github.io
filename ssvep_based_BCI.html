@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/ssvep_based_bci.css">
+
+    <link rel="stylesheet" href="assets/css/prism/prism-okaidia.min.css">
 </head>
 
 
@@ -265,8 +267,7 @@
                     “刺激稳定性的一些设置”步骤完成后，重启电脑，打开MATLAB，顺序运行以下代码Step1-5.m，即可完成视觉刺激的绘制。用户可以结合个人电脑的实际分辨率、刷新率去设计自定义的SSVEP系统。注意，SSVEP在低频的响应更明显，显示器能够呈现的刺激频率不得超过显示器刷新率的一半，如60Hz的显示器最高只能呈现30Hz的视觉刺激。关于正弦采样原理及SSVEP的理论知识可以参考附件中的文章。
                 </p>
                 <h4>Step1.m</h4>
-                <pre class="code-background">
-close all;
+<pre><code class="language-matlab code-fontsize">close all;
 clear ;
 clc;
 %正弦采样方法绘制刺激图片
@@ -386,11 +387,10 @@ try
     ListenChar(0);
     psychrethrow(psychlasterror);
 end
-Screen('CloseAll');</pre>
+Screen('CloseAll');</code></pre>
 
-                <h4>Step2.m</h4>
-                <pre class="code-background">
-close all;
+                <h4>Step2.m</h4><pre>
+<code class="language-matlab code-fontsize">close all;
 clear ;
 clc;
 % -------------------------------------------------------------------------
@@ -522,12 +522,11 @@ try
     ListenChar(0);
     psychrethrow(psychlasterror);
 end
-Screen('CloseAll');</pre>
+Screen('CloseAll');</code></pre>
 
                 <h4>Step3.m</h4>
 
-                <pre class="code-background">
-%生成GUI所需的每目标的灰色图片
+                <pre class="code-background"><code class="language-matlab code-fontsize">%生成GUI所需的每目标的灰色图片
 close all;
 clear ;
 clc;
@@ -636,12 +635,10 @@ try
     ListenChar(0);
     psychrethrow(psychlasterror);
 end
-Screen('CloseAll');</pre>
+Screen('CloseAll');</code></pre>
 
                 <h4>Step4.m</h4>
-                <pre class="code-background">
-
-close all;
+<pre class="code-background"><code class="language-matlab code-fontsize">close all;
 clear ;
 clc;
 % -------------------------------------------------------------------------
@@ -770,11 +767,10 @@ try
     ListenChar(0);
     psychrethrow(psychlasterror);
 end
-Screen('CloseAll');</pre>
+Screen('CloseAll');</code></pre>
 
                 <h4>Step5.m</h4>
-                <pre class="code-background">
-% 画反馈图片和提示图片
+                <pre><code class="language-matlab code-fontsize">% 画反馈图片和提示图片
 close all;
 clear ;
 clc;
@@ -911,14 +907,13 @@ catch
     ListenChar(0);
     psychrethrow(psychlasterror);
 end
-Screen('CloseAll');</pre>
+Screen('CloseAll');</code></pre>
 
                 <h4 class="elevator-content-8">Dataflow</h4>
 
                 <h4>pGetData.m</h4>
 
-                <pre class="code-background">
-function data=pGetData(tcpip_client,dataBuffer,pkgGroups)
+                <pre class="code-background"><code class="language-matlab code-fontsize">function data=pGetData(tcpip_client,dataBuffer,pkgGroups)
 if get(tcpip_client, 'BytesAvailable') > 0
     signal=fread(tcpip_client,dataBuffer);
     signal = native2unicode(signal,'UTF-8');
@@ -927,11 +922,10 @@ if get(tcpip_client, 'BytesAvailable') > 0
 else
     data=[];
 end
-end</pre>
+end</code></pre>
 
                 <h4>char2eegmatrix.m</h4>
-                <pre class="code-background">
-function dataAll = char2eegmatrix(eeg,pkgGroups)
+                <pre><code class="language-matlab code-fontsize">function dataAll = char2eegmatrix(eeg,pkgGroups)
 % tic
 chanNum = 8;
 if pkgGroups == 5
@@ -972,14 +966,13 @@ elseif pkgGroups == 1
     dataAll = eegdouble;
 end
 % toc
-end</pre>
+end</code></pre>
 
                 <h4 class="elevator-content-9">Algorithm</h4>
 
                 <h4>FBCCA.m</h4>
 
-                <pre class="code-background">
-function result = FBCCA(rawdata,channelSelection)
+                <pre><code class="language-matlab code-fontsize">function result = FBCCA(rawdata,channelSelection)
 % this is an  FBCCA function for SSVEP-based BCI
 % Input : channel*samplepoints
 % Output: Result index based freqStim
@@ -1069,13 +1062,13 @@ end
         [~, index] = sort(rrc);
         result = index(end);
 
-end</pre>
+end</code></pre>
 
                 <h4 class="elevator-content-10">Example</h4>
 
                 <h4>BrainTouch_SSVEP_Example.m</h4>
 
-                <pre class="code-background">
+                <pre><code class="language-matlab code-fontsize">
 %% demo展示刺激
 close all;
 clear ;
@@ -1294,7 +1287,7 @@ catch
     delete(tcpip_client);
     stop(fixTime);
 end
-Screen('CloseAll');</pre>
+Screen('CloseAll');</code></pre>
 
                 <h2 class="elevator-content-11">Downloadable files</h2>
 
@@ -1352,5 +1345,8 @@ Screen('CloseAll');</pre>
     <script src="js/flexible.js"></script>
     <script src="js/common.js"></script>
     <script src="js/instructions.js"></script>
+
+    <script src="assets/js/prism/prism.js"></script>
+    <script src="assets/js/prism/prism-matlab.min.js"></script>
 </body>
 </html>

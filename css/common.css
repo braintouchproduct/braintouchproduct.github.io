@@ -497,5 +497,24 @@ a {
 }
 
 .code-fontsize {
-    font-size: 0.12rem!important;
+    font-size: 0.1rem!important;
+}
+
+pre[class*=language-].line-numbers {
+    padding-left: 0.390625rem!important;
+}
+
+
+.toolbar > .toolbar-item button {
+    margin-top: 0.0390625rem;
+    cursor: pointer;
+}
+
+
+.toolbar > .toolbar-item span {
+    /*position: absolute;*/
+    /*top: -2px;*/
+    /*left: -25px;*/
+    font-size: 0.109375rem!important;
+    line-height: 0.109375rem;
 }

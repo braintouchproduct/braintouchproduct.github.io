@@ -6,16 +6,17 @@
 
 <!--    <link rel="stylesheet" href="css/html_fontsize.css">-->
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="assets/css/prism/prism-okaidia.min.css">
+    <link rel="stylesheet" href="assets/css/prism/prism-line-numbers.min.css">
+    <link rel="stylesheet" href="assets/css/prism/prism-toolbar.min.css">
+
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/eye_closed_detection.css">
-
-    <link rel="stylesheet" href="assets/css/prism/prism-okaidia.min.css">
-
 </head>
 
 
-<body>
+<body class="line-numbers">
     <!-- 背景图 start -->
     <div class="header-bg" id="header_bg">
         <!-- header 部分 start -->
@@ -73,13 +74,13 @@
                         <li><a data-id='1' class="a-title elevator-1 active">简介</a></li>
                         <li><a data-id='2' class="a-title elevator-2">硬件准备</a></li>
                         <li><a data-id='3' class="a-title elevator-3">项目描述</a></li>
-                        <li><a data-id='5' class="a-text elevator-5">ESP32-S3-DevKitC-1 开发板</a></li>
-                        <li><a data-id='6' class="a-title elevator-6">代码详解</a></li>
-                        <li><a data-id='7' class="a-text elevator-7">WIFI 连接</a></li>
-                        <li><a data-id='8' class="a-text elevator-8">socket 连接及 eeg 数据接收</a></li>
-                        <li><a data-id='9' class="a-text elevator-9">数据处理</a></li>
-                        <li><a data-id='10' class="a-text elevator-10">RGB 显示结果</a></li>
-                        <li><a data-id='11' class="a-title elevator-11">工程文件下载</a></li>
+                        <li><a data-id='5' class="a-text elevator-4">ESP32-S3-DevKitC-1 开发板</a></li>
+                        <li><a data-id='6' class="a-title elevator-5">代码详解</a></li>
+                        <li><a data-id='7' class="a-text elevator-6">WIFI 连接</a></li>
+                        <li><a data-id='8' class="a-text elevator-7">socket 连接及 eeg 数据接收</a></li>
+                        <li><a data-id='9' class="a-text elevator-8">数据处理</a></li>
+                        <li><a data-id='10' class="a-text elevator-9">RGB 显示结果</a></li>
+                        <li><a data-id='11' class="a-title elevator-10">工程文件下载</a></li>
                     </ul>
                 </div>
 
@@ -107,7 +108,7 @@
 
                 <h2 class="elevator-content-3">项目描述</h2>
 
-                <h4 class="elevator-content-5">认识 ESP32-S3-DevKitC-1 开发板</h4>
+                <h4 class="elevator-content-4">认识 ESP32-S3-DevKitC-1 开发板</h4>
 
                 <img src="images/eye_closed_det/img_01.png" alt="">
 
@@ -122,7 +123,7 @@
                     <li>通过 WiFi 连接, Braintouch Demo 展示软件</li>
                 </ul>
 
-                <h2 class="elevator-content-6">代码详解</h2>
+                <h2 class="elevator-content-5">代码详解</h2>
                 <p class="without-margin-bottom">所需 Middleware 如下: </p>
                 <ul class="ul-list-style-circle ul-ident-2-fontsize">
                     <li>lwIP: 轻量级 TCP/IP 协议, 提供 socket 支持</li>
@@ -131,7 +132,7 @@
                 </ul>
                 <p>基于 ESP32S3 的嵌入式代码工程文件较多, 以下将对部分代码进行分析:</p>
 
-                <h4 class="elevator-content-7">WiFi 连接</h4>
+                <h4 class="elevator-content-6">WiFi 连接</h4>
                 <p>
                     函数调用顺序: app_main() =&gt; example_connect() =&gt; start() =&gt; wifi_start()<br>
                     在 wifi_start() 中完成对 wifi 的配置和开启
@@ -159,7 +160,7 @@
     return netif;
 }</code></pre>
 
-                <h4 class="elevator-content-8">socket 连接及 eeg 数据接收</h4>
+                <h4 class="elevator-content-7">socket 连接及 eeg 数据接收</h4>
 
                 <p>
                     初始化： esp_netif_init() <br>
@@ -190,11 +191,11 @@
     while (1)
     {
         int len = recv(sock, rx_buffer, 512, 0);
-        //接收512个字节数据并进行处理
+        // 接收512个字节数据并进行处理
     }
 }</code></pre>
-                <h4 class="elevator-content-9">数据处理</h4>
-<pre class="code-background"><code class="language-matlab code-fontsize">void process_task(void)
+                <h4 class="elevator-content-8">数据处理</h4>
+<pre><code class="language-matlab code-fontsize">void process_task(void)
 {
     while(1)
     {
@@ -222,7 +223,7 @@
         xQueueSend(led_state_queue, &work_state, 10);
     }
 }</code></pre>
-                <h4 class="elevator-content-10">RGB 显示结果</h4>
+                <h4 class="elevator-content-9">RGB 显示结果</h4>
 
                 <p>
                     驱动基于 WS2812 的 RGB led 灯反馈算法结果<br>
@@ -230,7 +231,7 @@
                     睁眼：灭灯
                 </p>
 
-                <pre class="code-background"><code class="language-matlab code-fontsize">void led_task(void)
+                <pre><code class="language-matlab code-fontsize">void led_task(void)
 {
     //接收算法反馈结果
     if(!xQueueReceive(led_state_queue, &work_state, 0))
@@ -241,7 +242,7 @@
         ...
     }
 }</code></pre>
-                <h2 class="elevator-content-11">工程文件下载</h2>
+                <h2 class="elevator-content-10">工程文件下载</h2>
                 <h4>使用步骤：</h4>
                 <p class="without-margin-bottom">
                     step1: 为 ESP32-S3-DevKitC-1 开发板烧录程序
@@ -323,10 +324,14 @@
     <!-- 引入 js -->
     <script src="js/lodash.min.js"></script>
     <script src="js/flexible.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/instructions.js"></script>
-
     <script src="assets/js/prism/prism.js"></script>
     <script src="assets/js/prism/prism-matlab.min.js"></script>
+    <script src="assets/js/prism/prism-line-numbers.min.js"></script>
+
+    <script src="assets/js/prism/prism-toolbar.min.js"></script>
+    <script src="assets/js/prism/prism-copy-to-clipboard.min.js"></script>
+
+    <script src="js/common.js"></script>
+    <script src="js/instructions.js"></script>
 </body>
 </html>

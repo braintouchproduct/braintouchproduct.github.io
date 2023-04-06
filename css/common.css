@@ -495,3 +495,7 @@ a {
     left: 1rem;
     z-index: 100;
 }
+
+.code-fontsize {
+    font-size: 0.09375rem!important;
+}

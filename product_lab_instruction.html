@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/instructions.css">
+<!--    <link rel="stylesheet" href="css/prism/prism.min.css">-->
+    <link rel="stylesheet" href="assets/css/prism/prism-okaidia.min.css">
+<!--    <link rel="stylesheet" href="css/prism/prism-twilight.min.css">-->
 </head>
 
 
@@ -256,32 +259,29 @@
                 <p class="small-step">
                     TCP、Socket
                 </p>
-                <p class="warning-background">客户端建立连接之后, 如果退出请及时close, 否则可能会一直占用服务端资源, 导致数据发送异常</p>
-
+                <pre><code class="language-c code-fontsize">客户端建立连接之后, 如果退出请及时 close, 否则可能会一直占用服务端资源, 导致数据发送异常</code></pre>
 
                 <h4 class="elevator-content-10">IP 端口</h4>
                 <p>使用本机 IP, 默认端口号: 9600</p>
 
                 <h4 class="elevator-content-11">指令</h4>
                 <p class="small-step"><span class="blue-font-color">"config"</span> 获取数据配置, 客户端可根据 pkgLength 固定长度读取 EEG 数据, 避免粘包问题, 返回 json 字符串:</p>
-                <pre class="code-background">
-{
-    "pkgLength":512,//每个包的长度，不同设备长度会变化
-    "pkgGroups":5,//每个包包含几组数据
-    "channelNum":8,//设备通道数
-    "deviceName":"NN-02-A551864D35"//设备名称
-}</pre>
+                <pre><code class="language-json code-fontsize">{
+    "pkgLength":512,                // 每个包的长度，不同设备长度会变化
+    "pkgGroups":5,                  // 每个包包含几组数据
+    "channelNum":8,                 // 设备通道数
+    "deviceName":"NN-02-A551864D35" // 设备名称
+}</code></pre>
                 <br>
                 <p class="small-step"><span class="blue-font-color">"config_str"</span> 获取数据配置, 返回逗号 "," 分隔字符串: </p>
-                <pre class="code-background">
-"$每个包的长度,$每个包包含几组数据,$设备通道数,$设备名称"</pre>
+                <pre ><code class="language-json code-fontsize">"$每个包的长度,$每个包包含几组数据,$设备通道数,$设备名称"</code></pre>
 
 
                 <p class="small-step">
                     <span class="blue-font-color">"start"</span> 开始发送 EEG 数据, 使用逗号 "," 分隔, 第 1 个为格式化(HH:mm:ss.SSS)后的时间戳, 第 2 个为包号(0~255), 第 3 个开始为每个通道(1 ~ channelNum)点的数据, 总点数为 pkgGroups * channelNum, 后面的数据不需要处理,格式如下:
                 </p>
 
-<pre class="code-background">17:52:17.822,87.0,4.7609215,8.58307,8.493663,3.6433342,14.1933565,11.041761,7.5101857,5.9902673,4.4032936,9.186566,
+<pre><code class="language-json code-fontsize">17:52:17.822,87.0,4.7609215,8.58307,8.493663,3.6433342,14.1933565,11.041761,7.5101857,5.9902673,4.4032936,9.186566,
 8.873642,3.9115553,15.310945,11.5335,7.9125175,7.1972613,4.112721,8.806587,8.784235,3.933907,15.13213,11.265279,
 8.0913315,6.5714126,4.895032,8.0913315,8.024276,3.4645202,14.148653,10.572374,7.6666484,5.654991,5.319715,7.6219444,
 8.024276,3.218651,13.656915,10.415913,7.4431305,5.230308,0.0,0.0,2.4375,65.0,0.0
@@ -290,7 +290,7 @@
 8.448959,4.023314,15.445055,11.824072,8.136035,6.549061,3.8892035,8.516014,8.270145,3.8221483,15.400352,11.868775,
 8.225442,6.616116,4.380942,7.800759,7.7337036,3.218651,14.506281,11.019409,7.6442966,5.677343,5.0291424,7.711352,
 7.5995927,3.1068923,13.813377,10.684134,7.3760753,5.6102877,0.0,0.0,2.4375,65.0,0.0
-</pre>
+</code></pre>
                 <p class="small-step"><span class="blue-font-color">"stop"</span> 停止发送 EEG 数据</p>
 
 
@@ -314,8 +314,7 @@
                     <li><h3 class="h3-margin-top-10px">BrainTouch_socket 初始化</h3></li>
                 </ul>
 
-                <pre class="code-background">
-function [tcpip_client,dataBuffer,pkgGroups] = SocketInitialize(ipAddress,serverPort)
+                <pre><code class="language-matlab code-fontsize">function [tcpip_client,dataBuffer,pkgGroups] = SocketInitialize(ipAddress,serverPort)
 %初始化，获取Socket通信参数
 %% ipAddress:BrainTouch lab 获取的本机 IP 地址
 %% serverPort：端口号
@@ -338,13 +337,12 @@ dataBuffer = configuration.pkgLength;%提取TCP传输关键参数：字节数
 pkgGroups = configuration.pkgGroups;%提取TCP传输关键参数：蓝牙组包个数，不同设备解码方式不一致
 fwrite(tcpip_client,'start','char')%开始数据传输指令
 disp(['初始化完成，开始数据传输'])
-end</pre>
+end</code></pre>
 
                 <ul class="ul-need-list-style">
                     <li><h3 class="h3-margin-top-10px">BrainTouch_socket 数据传输</h3></li>
                 </ul>
-                <pre class="code-background">
-function data=pGetData(tcpip_client,dataBuffer,pkgGroups)
+                <pre ><code class="language-matlab code-fontsize">function data=pGetData(tcpip_client,dataBuffer,pkgGroups)
     if get(tcpip_client, 'BytesAvailable') > 0
         signal=fread(tcpip_client,dataBuffer);%发送数据较多的话，需要改buffer
         signal = native2unicode(signal,'UTF-8');
@@ -354,14 +352,13 @@ function data=pGetData(tcpip_client,dataBuffer,pkgGroups)
     else
         data=[];
     end
-end</pre>
+end</code></pre>
                 <h3 class="h3-margin-top-30px">示例</h3>
                 <p class="small-step">
                     示例如何使用 BrainTouch_socket 获得数据，并将数据流与范式连接起来<br>
                     数据流为实时不中断形式，使用计时器方法，以固定周期轮询通信管道，读取数据并赋值给变量 circBuff
                 </p>
-                <pre class="code-background">
-params.chanNum = 8;
+                <pre ><code class="language-matlab code-fontsize">params.chanNum = 8;
 params.sampleRate = 250;
 params.dataLength = 0.04;%单位：秒
 buffSize = params.sampleRate*params.dataLength;
@@ -382,7 +379,7 @@ catch
     delete(tcpip_client);
     stop(fixTime);
     close all;
-end</pre>
+end</code></pre>
                 <p>
                     计时器周期不能低于 Socket 发包速度，设备采样率 250Hz，本示例设置周期 2 毫秒。因为在同一进程中，你可以在任意时刻对数据变量 circBuff 做处理。
                 </p>
@@ -451,40 +448,36 @@ end</pre>
                     示例如何使用 BrainTouch_socket 获得数据，并将数据流与范式连接起来<br>
                     数据流为实时不中断形式，所以推荐使用多进程方式构建在线系统框架，这里使用 multiprocessing 进行演示，具体代码请参阅 BrainTouch_Demo
                 </P>
-                <pre class="code-background">
-def EEG_Data_stream(Data_pend,trigger_queue):           #构建数据端的进程函数
-    S = DataStream(IP='192.168.1.39', PORT=9600,
-    		   data_length=1, Data_pend=Data_pend,
-    		   trigger_queue=trigger_queue)         #实例化DataStream工作类
-    S.run_DataStream()                                  #启动数据流</pre>
+                <pre><code class="language-python code-fontsize"># 构建数据端的进程函数
+def EEG_Data_stream(Data_pend,trigger_queue):
+    # 实例化 DataStream 工作类
+    S = DataStream(IP='192.168.1.39', PORT=9600,data_length=1, Data_pend=Data_pend,trigger_queue=trigger_queue)
+
+    # 启动数据流
+    S.run_DataStream()</code></pre>
 
 
                 <p>接下来构建范式端</p>
-                <pre class="code-background">
-def EEG_Paradigm(Paradigm_tel,trigger_queue):    #构建范式端进程函数
+                <pre><code class="language-python code-fontsize">def EEG_Paradigm(Paradigm_tel,trigger_queue):    # 构建范式端进程函数
     while True:
-         x_1s = Paradigm_tel.recv()              #循环方式读取由数据端通过管道发送的EEG数据，注意Pipe的recv()方法是阻塞的，因此将等待直到数据端接收到足够长度的数据，可以通过改变data_length控制返回间隔
+         x_1s = Paradigm_tel.recv()              # 循环方式读取由数据端通过管道发送的EEG数据，注意Pipe的recv()方法是阻塞的，因此将等待直到数据端接收到足够长度的数据，可以通过改变data_length控制返回间隔
 
-         print('接收数据类型: ',type(x_1s),
-              '    ','shape: ',x_1s,shape)
+         print('接收数据类型: ',type(x_1s), '    ','shape: ',x_1s,shape)
 
          time.sleep(0.5)
-         trigger_queue.put(10)	                 #发送标签“10”</pre>
+         trigger_queue.put(10)  # 发送标签 "10"</code></pre>
 
 
                 <p>为了保证范式端与数据端同时实时运行且互不干扰，在示例中使用 multiprocessing 进行多进程工作</p>
-                <pre class="code-background">
-Data_pend, Paradigm_pend = Pipe()                    #实例化数据通信管道
-trigger_Queue            = Queue(1)                  #实例化标签通信队列
+                <pre><code class="language-python code-fontsize">Data_pend, Paradigm_pend = Pipe()  # 实例化数据通信管道
+trigger_Queue = Queue(1)           # 实例化标签通信队列
 
-p1 = Process(target=EEG_Paradigm,
-             args=(Paradigm_pend,trigger_Queue,))    #创建范式端进程
-p2 = Process(target=EEG_Data_stream,
-             args=(Data_pend,trigger_Queue,))        #创建数据端进程
+p1 = Process(target=EEG_Paradigm, args=(Paradigm_pend, trigger_Queue, ))    # 创建范式端进程
+p2 = Process(target=EEG_Data_stream, args=(Data_pend, trigger_Queue, ))     # 创建数据端进程
 
 print('开始')
-p1.start()                                           #开始示例
-p2.start()</pre>
+p1.start()   # 开始示例
+p2.start()</code></pre>
 
 
                 <!-- 基于 BrainTouch 与 ESP32 的基础 EEG 数据框架示例 -->
@@ -647,8 +640,7 @@ p2.start()</pre>
                 <p>示例，如何使用 api 连接 wifi，建立 socket 连接，接收数据，及数据解析。</p>
                 <p>以下将关键代码列出</p>
 
-                <pre class="code-background">
-...
+                <pre><code class="language-matlab code-fontsize">...
 esp_wifi_connect();
 ...
 sock =  socket(addr_family, SOCK_STREAM, ip_protocol);
@@ -661,10 +653,9 @@ while (1)
 {
     int len = recv(sock, rx_buffer, 512, 0);
     //接收512个字节数据并进行处理
-}</pre>
+}</code></pre>
                 <p>接下来演示数据解析</p>
-                <pre class="code-background">
-//将字符流转为float数据，eeg_group_len：一个数据包内含有多少组数据，eeg_channel：通道数
+                <pre><code class="language-matlab code-fontsize">// 将字符流转为float数据，eeg_group_len：一个数据包内含有多少组数据，eeg_channel：通道数
 parse_str(rx_buffer, rx_fbuffer, eeg_group_len * eeg_channel + 3);
 float *data = rx_fbuffer + 3;
 for(int i=0; i < eeg_group_len&#59; i++)
@@ -674,11 +665,10 @@ for(int i=0; i < eeg_group_len&#59; i++)
         eeg_queue_push(&eeg_data[j], &data[i * 8 + j], 1);
     }
 }
-//此处为每一个通道创建一个队列，每解析一个数据压入相应队列</pre>
+//此处为每一个通道创建一个队列，每解析一个数据压入相应队列</code></pre>
 
                 <p>为保证数据传输的实时性，数据使用在一个独立的任务中进行</p>
-<pre class="code-background">
-void process_task(void)
+<pre class="code-background"><code class="language-python code-fontsize">void process_task(void)
 {
     while(1)
     {
@@ -689,7 +679,7 @@ void process_task(void)
         ...
         数据处理，根据不同范式进行算法运算
     }
-}</pre>
+}</code></pre>
 
                 <p class="small-step">
                     我们同时也提供在 Matlab、Python、Arduino 平台进行数据交互与应用开发的示例教程及相应源代码，您可以点击下方链接进行体验与探索。
@@ -747,5 +737,11 @@ void process_task(void)
     <script src="js/flexible.js"></script>
     <script src="js/common.js"></script>
     <script src="js/instructions.js"></script>
+
+    <script src="assets/js/prism/prism.js"></script>
+    <script src="assets/js/prism/prism-c.min.js"></script>
+    <script src="assets/js/prism/prism-json.min.js"></script>
+    <script src="assets/js/prism/prism-python.min.js"></script>
+    <script src="assets/js/prism/prism-matlab.min.js"></script>
 </body>
 </html>

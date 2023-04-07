@@ -94,27 +94,6 @@
                     }
                 }
             })
-
-            // https 2 http
-            // let unit = unitInput.value.trim()
-            // let contact = contactStr
-            // let purchase = purchaseInput.value.trim()
-
-            // try {
-            //     const img = new Image()
-            //     img.src = `https://39.107.40.115:8080/api/purchase?unit=${unit}&contact=${contact}&purchase=${purchase}`
-            //     alert(`submitted successfully, We will contact you within 2 working days`)
-            //     document.querySelector('.mask').style= 'none'
-            //
-            //     unitInput.value = ''
-            //     contactInput.value = ''
-            //     purchaseInput.value = ''
-            // } catch (error) {
-            //     alert('failed')
-            //     return
-            // } finally {
-            //
-            // }
         }
     })
 

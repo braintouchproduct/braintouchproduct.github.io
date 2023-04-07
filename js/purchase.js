@@ -71,50 +71,50 @@
 
         if(isValid) {
             // 验证成功 - 发送 ajax 请求
-            /*            $.ajax({
-                            type: 'post',
-                            url: 'http://39.107.40.115:9000/api/purchase',
-                            contentType: 'application/json',
-                            data:JSON.stringify({
-                                unit: unitInput.value.trim(),
-                                contact: contactStr,
-                                purchase: purchaseInput.value.trim()
-                            }),
-                            dataType:'json',
-                            success: function(response) {
-                                if(response.code === 200){
-                                    unitInput.value = ''
-                                    contactInput.value = ''
-                                    alert(`我们将于 2 个工作日内联系您`)
+            $.ajax({
+                type: 'post',
+                url: 'https://39.107.40.115:8080/api/purchase',
+                contentType: 'application/json',
+                data:JSON.stringify({
+                    unit: unitInput.value.trim(),
+                    contact: contactStr,
+                    purchase: purchaseInput.value.trim()
+                }),
+                dataType:'json',
+                success: function(response) {
+                    if(response.code === 200){
+                        document.querySelector('.mask').style= 'none'
 
-                                    document.querySelector('.mask').style= 'none'
+                        unitInput.value = ''
+                        contactInput.value = ''
+                        alert(`我们将于 2 个工作日内联系您`)
 
-                                } else if(response.code !== 200) {
-                                    alert(response.msg)
-                                }
-                            }
-                        })*/
+                    } else if(response.code !== 200) {
+                        alert(response.msg)
+                    }
+                }
+            })
 
             // https 2 http
-            let unit = unitInput.value.trim()
-            let contact = contactStr
-            let purchase = purchaseInput.value.trim()
+            // let unit = unitInput.value.trim()
+            // let contact = contactStr
+            // let purchase = purchaseInput.value.trim()
 
-            try {
-                const img = new Image()
-                img.src = `https://39.107.40.115:8080/api/purchase?unit=${unit}&contact=${contact}&purchase=${purchase}`
-                alert(`submitted successfully, We will contact you within 2 working days`)
-                document.querySelector('.mask').style= 'none'
-
-                unitInput.value = ''
-                contactInput.value = ''
-                purchaseInput.value = ''
-            } catch (error) {
-                alert('failed')
-                return
-            } finally {
-
-            }
+            // try {
+            //     const img = new Image()
+            //     img.src = `https://39.107.40.115:8080/api/purchase?unit=${unit}&contact=${contact}&purchase=${purchase}`
+            //     alert(`submitted successfully, We will contact you within 2 working days`)
+            //     document.querySelector('.mask').style= 'none'
+            //
+            //     unitInput.value = ''
+            //     contactInput.value = ''
+            //     purchaseInput.value = ''
+            // } catch (error) {
+            //     alert('failed')
+            //     return
+            // } finally {
+            //
+            // }
         }
     })
 

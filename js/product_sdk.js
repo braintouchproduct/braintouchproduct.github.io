@@ -23,7 +23,7 @@
     bannerVideo.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/banner_video_less.mp4'
     // 第 1 个视频加载完成事件
     bannerVideo.addEventListener('canplaythrough', function (){
-        console.log('第 1 个视频加载完成')
+        // console.log('第 1 个视频加载完成')
 
         // 加载第 2 个视频
         secondVideo.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/video_01.mp4'
@@ -31,7 +31,7 @@
 
     // 第 2 个视频加载完成事件
     secondVideo.addEventListener('canplaythrough', function (){
-        console.log('第 2 个视频加载完成')
+        // console.log('第 2 个视频加载完成')
 
         // 加载第 3 个视频
         focusVideo_03.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/drive_scene.mp4'
@@ -39,7 +39,7 @@
 
     // 第 3 个视频加载完成事件
     focusVideo_03.addEventListener('canplaythrough', function (){
-        console.log('第 3 个视频加载完成')
+        // console.log('第 3 个视频加载完成')
 
         // 加载第 4 个视频
         focusVideo_01.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/riding_scene.mp4'
@@ -47,7 +47,7 @@
 
     // 第 4 个视频加载完成事件
     focusVideo_01.addEventListener('canplaythrough', function (){
-        console.log('第 4 个视频加载完成')
+        // console.log('第 4 个视频加载完成')
 
         // 加载第 5 个视频
         focusVideo_02.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/als_scene.mp4'
@@ -55,7 +55,7 @@
 
     // 第 5 个视频加载完成事件
     focusVideo_02.addEventListener('canplaythrough', function (){
-        console.log('第 5 个视频加载完成')
+        // console.log('第 5 个视频加载完成')
 
         // 加载第 6 个视频
         DemoVideo_01.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/demo_01.mp4'
@@ -63,15 +63,15 @@
 
     // 第 6 个视频加载完成事件
     DemoVideo_01.addEventListener('canplaythrough', function (){
-        console.log('第 6 个视频加载完成')
+        // console.log('第 6 个视频加载完成')
 
         // 加载第 7 个视频
         DemoVideo_02.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/demo_02_hololens.mp4'
     })
 
     // 第 7 个视频加载完成事件
-    DemoVideo_02.addEventListener('canplaythrough', function (){
-        console.log('第 7 个视频加载完成')
-    })
+    // DemoVideo_02.addEventListener('canplaythrough', function (){
+        // console.log('第 7 个视频加载完成')
+    // })
 
 })();

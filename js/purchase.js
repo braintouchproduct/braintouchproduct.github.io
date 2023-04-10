@@ -86,7 +86,7 @@
                         document.querySelector('.mask').style= 'none'
                         unitInput.value = ''
                         contactInput.value = ''
-                        alert(`我们将于 2 个工作日内联系您`)
+                        alert(`我们将于 1 个工作日内联系您`)
 
                     } else if(response.code !== 200) {
                         alert(response.msg)

@@ -84,7 +84,6 @@
                 success: function(response) {
                     if(response.code === 200){
                         document.querySelector('.mask').style= 'none'
-
                         unitInput.value = ''
                         contactInput.value = ''
                         alert(`我们将于 2 个工作日内联系您`)
@@ -96,5 +95,4 @@
             })
         }
     })
-
 })();

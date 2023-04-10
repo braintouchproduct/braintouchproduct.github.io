@@ -91,6 +91,9 @@
                     } else if(response.code !== 200) {
                         alert(response.msg)
                     }
+                },
+                error: function (xhr, status){
+                    alert('提交失败')
                 }
             })
         }

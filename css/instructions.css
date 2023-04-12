@@ -184,6 +184,7 @@
 
 .main-content .right .software .search-download div:hover {
     background-color: #CCFF02;
+    border: 1px solid transparent;
 }
 
 .main-content .right .software .download-lab img,
@@ -455,6 +456,7 @@
 
 .main-content .right .project-hub-2:hover {
     background-color: #CCFF02;
+    border: 1px solid transparent;
 }
 
 

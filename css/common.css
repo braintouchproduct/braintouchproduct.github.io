@@ -96,8 +96,8 @@ html {
     height: 0.24609375rem;
     background: #FFFFFF;
     border-radius: 0.12109375rem;
-    font-size: 24px;
-    padding-left: 30px;
+    font-size: 0.09375rem;
+    padding-left: 0.15625rem;
     border: 0;
     outline: none;
 }
@@ -134,7 +134,7 @@ html {
 .purchase-info p {
     position: absolute;
     top: 2.74609375rem;
-    left: 0.98046875rem;
+    left: 0.9rem;
     font-size: 0.09375rem;
     font-weight: 400;
     color: #494952;

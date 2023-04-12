@@ -1,14 +1,14 @@
 (function (){
-    let video = document.querySelector('.banner-div-video video')
+    let gif = document.querySelector('.banner-gif-div')
     setTimeout(function (){
-        video.style.display = 'block'
+        gif.style.display = 'block'
         console.log('显示 banner 视频')
     }, 4 * 1000)
 })();
 
 
 // 控制视频加载顺序
-(function (){
+/*(function (){
     let videoArr = document.querySelectorAll('.video');
     let bannerVideo = videoArr[0]  // 1,340 KB       banner_video_less.mp4
     let secondVideo = videoArr[1]  // 5,997 KB       video_01.mp4
@@ -20,13 +20,17 @@
     let focusVideo_03 = videoArr[6] // 3,904 KB      drive_scene.mp4
 
     // 加载第 1 个视频
-    bannerVideo.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/banner_video_less.mp4'
+    // bannerVideo.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/banner_video_less.mp4'
+    bannerVideo.src = 'video/sdk/banner_video_less.mp4'
     // 第 1 个视频加载完成事件
     bannerVideo.addEventListener('canplaythrough', function (){
         // console.log('第 1 个视频加载完成')
+        // 自动播放第一个视频
+        // bannerVideo.play()
 
         // 加载第 2 个视频
-        secondVideo.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/video_01.mp4'
+        // secondVideo.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/video_01.mp4'
+        secondVideo.src = 'video/sdk/video_01.mp4'
     })
 
     // 第 2 个视频加载完成事件
@@ -34,7 +38,8 @@
         // console.log('第 2 个视频加载完成')
 
         // 加载第 3 个视频
-        focusVideo_03.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/drive_scene.mp4'
+        // focusVideo_03.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/drive_scene.mp4'
+        focusVideo_03.src = 'video/sdk/drive_scene.mp4'
     })
 
     // 第 3 个视频加载完成事件
@@ -42,7 +47,8 @@
         // console.log('第 3 个视频加载完成')
 
         // 加载第 4 个视频
-        focusVideo_01.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/riding_scene.mp4'
+        // focusVideo_01.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/riding_scene.mp4'
+        focusVideo_01.src = 'video/sdk/riding_scene.mp4'
     })
 
     // 第 4 个视频加载完成事件
@@ -50,7 +56,8 @@
         // console.log('第 4 个视频加载完成')
 
         // 加载第 5 个视频
-        focusVideo_02.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/als_scene.mp4'
+        // focusVideo_02.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/als_scene.mp4'
+        focusVideo_02.src = 'video/sdk/als_scene.mp4'
     })
 
     // 第 5 个视频加载完成事件
@@ -58,7 +65,8 @@
         // console.log('第 5 个视频加载完成')
 
         // 加载第 6 个视频
-        DemoVideo_01.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/demo_01.mp4'
+        // DemoVideo_01.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/demo_01.mp4'
+        DemoVideo_01.src = 'video/sdk/demo_01.mp4'
     })
 
     // 第 6 个视频加载完成事件
@@ -66,7 +74,8 @@
         // console.log('第 6 个视频加载完成')
 
         // 加载第 7 个视频
-        DemoVideo_02.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/demo_02_hololens.mp4'
+        // DemoVideo_02.src = 'https://media.githubusercontent.com/media/braintouchproduct/braintouchproduct.github.io/main/video/sdk/demo_02_hololens.mp4'
+        DemoVideo_02.src = 'video/sdk/demo_02_hololens.mp4'
     })
 
     // 第 7 个视频加载完成事件
@@ -74,4 +83,4 @@
         // console.log('第 7 个视频加载完成')
     // })
 
-})();
+})();*/

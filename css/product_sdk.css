@@ -1,29 +1,75 @@
 .header-bg {
+    position: relative;
     height: 4.55rem;
+}
+
+/* 在 banner 中放置 gif  start */
+.banner-gif-div {
+    position: absolute;
+    top: 0.53515625rem;
+    left: 0;
+    display: none;  /* 一开始是隐藏的 */
+    width: 100%;
+    height: 4.03rem;
+    z-index: 200;
+}
+
+.banner-gif-div img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* gif:hover 显示遮罩层 */
+.banner-gif-div:hover img:nth-of-type(2) {
+    display: block;
+}
+
+/* gif 前面的遮罩层样式 */
+.banner_mouseover_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 300;
+    width: 100%;
+    height: 4.00390625rem;
+}
+
+/* 在 banner 中放置 gif  end */
+
+
+
+/* 在 banner 中放置视频  start */
+.banner-div-video {
+    width: 100%;
+    height: 4.03rem;
 }
 
 .banner-div-video video {
     position: absolute;
-    display: none;
+    top: 0.53515625rem;
+    left: 0;
+    width: 100%;
+    height: 4.03rem;
+    /*z-index: 200!important;*/
+}
+
+.banner-video {
+    /*position: absolute;*/
+    display: block;
     top: 0.5703125rem;
     left: 0;
     width: 100%;
     height: 4.03rem;
     z-index: 200;
 }
+/* 在 banner 中放置视频  end */
 
+
+/* hover 视频时显示遮罩层 */
 .banner-div-video:hover img {
     display: block;
-}
-
-.banner_mouseover_img {
-    position: absolute;
-    top: 0.5703125rem;
-    left: 0;
-    display: none;
-    z-index: 300;
-    width: 100%;
-    height: 4.00390625rem;
 }
 
 .banner .left .btn {
@@ -208,4 +254,10 @@
 .focus video {
     /*width: 100%;*/
     height: 60%;
+}
+
+.swiper-slide > div {
+    width: 100%;
+    height: 100%;
+    margin-top: 1.6796875rem;
 }

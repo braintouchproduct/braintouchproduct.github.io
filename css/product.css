@@ -318,6 +318,7 @@
 
 .eeg_data_application .content button:hover {
     background-color: #CCFF02;
+    border: 1px solid transparent;
 }
 
 .eeg_data_application .content button {
@@ -684,6 +685,7 @@
     margin: 0 0.1015625rem 0.1015625rem 0;
     background-color: #fff;
     padding: 0 0.1953125rem;
+    border: 3px solid #F3F3F3;
 }
 
 .industry-application .content .divs div:nth-child(4),
@@ -743,6 +745,7 @@
 .industry-application .content .download:hover,
 .industry-application .content .project-hub-btn:hover {
     background-color: #CCFF02;
+    border: 3px solid transparent;
 }
 
 

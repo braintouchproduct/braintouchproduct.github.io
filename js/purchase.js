@@ -73,7 +73,7 @@
             // 验证成功 - 发送 ajax 请求
             $.ajax({
                 type: 'post',
-                url: 'https://39.107.40.115:8080/api/purchase',
+                url: 'https://braintouch.naolubrain.cn:8080/api/purchase',
                 contentType: 'application/json',
                 data:JSON.stringify({
                     unit: unitInput.value.trim(),
@@ -92,8 +92,13 @@
                         alert(response.msg)
                     }
                 },
-                error: function (xhr, status){
-                    alert('提交失败')
+                error: function (xhr, status, errorThrown){
+                    console.log(`状态:${xhr.readyState}`);//当前状态,0-未初始化，1-正在载入，2-已经载入，3-数据进行交互，4-完成。
+                    console.log(`错误信息: ${xhr.statusText}`);
+                    console.log(`响应:${xhr.responseText}`);
+                    console.log(errorThrown);
+                    alert(`状态码: ${xhr.status}\n状态:${xhr.readyState}\n错误信息: ${xhr.statusText}\n响应:${xhr.responseText}`)
+                    alert(errorThrown)
                 }
             })
         }
